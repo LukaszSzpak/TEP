@@ -53,13 +53,25 @@ void print_tab(int **(*piTable), int iSizeX, int iSizeY) {
     }
 }
 
+//polecenie 3
+bool b_dealloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY) {
+    if (iSizeX <=0 || iSizeY <= 0)
+        return false;
+
+    for (int i = 0; i < iSizeX; i++)
+        delete((*piTable)[i]);
+    delete(*piTable);
+    return true;
+}
+
 //testowy main
 int main() {
     v_alloc_table_add_5(5);
 
-    int** tab;
-    b_alloc_table_2_dim(&tab, 3, 5);
-    print_tab(&tab, 3, 5);
+    int** piTable;
+    std::cout<<"Alokowanie: "<<b_alloc_table_2_dim(&piTable, 3, 5);
+    print_tab(&piTable, 3, 5);
+    std::cout<<"Usuwanie: "<<b_dealloc_table_2_dim(&piTable, 3, 5);
 
     return 0;
 }
