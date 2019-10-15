@@ -101,6 +101,6 @@ bool v_alloc2(int **ptr, int size) {
 }
 
 void de_alloc(int **ptr) {
-    delete(ptr);
-    *ptr = NULL;
+    delete*(ptr);
+    ptr = NULL;
 }
