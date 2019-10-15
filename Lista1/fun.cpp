@@ -4,6 +4,7 @@
 #include <iostream>
 #include "fun.h"
 
+            //* PIERWSZA CZESC *//
 //polecenie 1
 void v_alloc_table_add_5(int iSize) {
     std::cout<<"Zadanie 1:\n";
@@ -65,4 +66,41 @@ bool b_dealloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY) {
         delete((*piTable)[i]);
     delete(*piTable);
     return true;
+}
+
+        //* CZESC DRUGA *//
+
+void showArray(int *array, int size) {
+    std::cout<<"\nWyswietalm tablice:\n";
+    for (int i = 0; i < size; i++)
+        std::cout<<array[i]<<" ";
+}
+
+int *v_alloc(int size) {
+    if(size < 1 || size > 1000)
+        return NULL;
+
+    int *array = new int[size];
+
+    for (int i = 0; i < size; i++)
+        array[i] = i + 5;
+
+    return array;
+}
+
+bool v_alloc2(int **ptr, int size) {
+    if(size < 1 || size > 1000)
+        return false;
+
+    *ptr = new int[size];
+
+    for (int i = 0; i < size; i++)
+        (*ptr)[i] = i + 10;
+
+    return true;
+}
+
+void de_alloc(int **ptr) {
+    delete(ptr);
+    *ptr = NULL;
 }

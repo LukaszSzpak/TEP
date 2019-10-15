@@ -13,5 +13,14 @@ int main() {
     print_tab(&piTable, 3, 5);
     std::cout<<"Usuwanie: "<<b_dealloc_table_2_dim(&piTable, 3, 5);
 
+    int* array;
+    array = v_alloc(5);
+    showArray(array, 5);
+    de_alloc(&array);
+
+    std::cout<<"\nCzy sie udalo: "<<v_alloc2(&array, 5);
+    showArray(array, 5);
+    de_alloc(&array);
+
     return 0;
 }
