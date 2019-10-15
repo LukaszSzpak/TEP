@@ -3,4 +3,4 @@ project(Lista1)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(Lista1 main.cpp)
+add_executable(Lista1 main.cpp fun.cpp fun.h)

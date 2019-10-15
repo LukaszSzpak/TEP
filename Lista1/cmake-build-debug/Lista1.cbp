@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/RC/Documents/GitHub/TEP/Lista1/fun.cpp">
+			<Option target="Lista1"/>
+		</Unit>
+		<Unit filename="C:/Users/RC/Documents/GitHub/TEP/Lista1/fun.h">
+			<Option target="Lista1"/>
+		</Unit>
 		<Unit filename="C:/Users/RC/Documents/GitHub/TEP/Lista1/main.cpp">
 			<Option target="Lista1"/>
 		</Unit>

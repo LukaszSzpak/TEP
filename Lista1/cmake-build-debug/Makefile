@@ -122,6 +122,33 @@ Lista1/fast:
 	$(MAKE) -f CMakeFiles\Lista1.dir\build.make CMakeFiles/Lista1.dir/build
 .PHONY : Lista1/fast
 
+fun.obj: fun.cpp.obj
+
+.PHONY : fun.obj
+
+# target to build an object file
+fun.cpp.obj:
+	$(MAKE) -f CMakeFiles\Lista1.dir\build.make CMakeFiles/Lista1.dir/fun.cpp.obj
+.PHONY : fun.cpp.obj
+
+fun.i: fun.cpp.i
+
+.PHONY : fun.i
+
+# target to preprocess a source file
+fun.cpp.i:
+	$(MAKE) -f CMakeFiles\Lista1.dir\build.make CMakeFiles/Lista1.dir/fun.cpp.i
+.PHONY : fun.cpp.i
+
+fun.s: fun.cpp.s
+
+.PHONY : fun.s
+
+# target to generate assembly for a file
+fun.cpp.s:
+	$(MAKE) -f CMakeFiles\Lista1.dir\build.make CMakeFiles/Lista1.dir/fun.cpp.s
+.PHONY : fun.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -158,6 +185,9 @@ help:
 	@echo ... Lista1
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... fun.obj
+	@echo ... fun.i
+	@echo ... fun.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
