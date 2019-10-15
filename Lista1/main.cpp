@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "main.h"
 
 //polecenie 1
 void v_alloc_table_add_5(int iSize) {
