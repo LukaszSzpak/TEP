@@ -1,0 +1,3 @@
+C:/Users/RC/Documents/GitHub/TEP/Lista2/cmake-build-debug/CMakeFiles/Lista2.dir
+C:/Users/RC/Documents/GitHub/TEP/Lista2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/RC/Documents/GitHub/TEP/Lista2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
