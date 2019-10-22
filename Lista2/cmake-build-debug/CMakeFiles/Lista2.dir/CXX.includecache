@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/RC/Documents/GitHub/TEP/Lista2/CTable.cpp
+iostream
+-
+CTable.h
+C:/Users/RC/Documents/GitHub/TEP/Lista2/CTable.h
+
+C:/Users/RC/Documents/GitHub/TEP/Lista2/CTable.h
+string
+-
+
+C:/Users/RC/Documents/GitHub/TEP/Lista2/main.cpp
+iostream
+-
+CTable.h
+C:/Users/RC/Documents/GitHub/TEP/Lista2/CTable.h
+

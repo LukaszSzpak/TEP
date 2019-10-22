@@ -11,7 +11,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="946aa804-c088-434c-9657-5744edd4fa7c" name="Default Changelist" comment="" />
+    <list default="true" id="946aa804-c088-434c-9657-5744edd4fa7c" name="Default Changelist" comment="Utworzenie projektu, dodanie struktury plików">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/CXX.includecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/main.cpp.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lista1/fun.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lista1/fun.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CTable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/CTable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lista2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Lista2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +39,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1STyR30NlPeGKl693hMFkl65br6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -60,10 +75,34 @@
       <option name="presentableId" value="Default" />
       <updated>1571601868221</updated>
       <workItem from="1571601869721" duration="1249000" />
+      <workItem from="1571603154818" duration="4590000" />
     </task>
+    <task id="LOCAL-00001" summary="Utworzenie projektu, dodanie struktury plików">
+      <created>1571603251584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571603251584</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Utworzenie projektu, dodanie struktury plików" />
+    <option name="LAST_COMMIT_MESSAGE" value="Utworzenie projektu, dodanie struktury plików" />
   </component>
 </project>

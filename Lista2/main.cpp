@@ -1,6 +1,16 @@
-#include <iostream>
 #include "CTable.h"
 
 int main() {
-    std::cout<<"to ja";
+
+    CTable *cTable = new CTable();
+    cTable->print_CTable();
+
+    cTable->vSetName("jaaa");
+    cTable->print_CTable();
+
+    delete(cTable);
+
+
+
+
 }

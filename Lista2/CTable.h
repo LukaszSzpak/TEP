@@ -9,18 +9,21 @@
 
 
 class CTable {
-    const int DEF_SIZE = 5;
+    static const int DEF_SIZE = 5;
     const std::string DEF_NAME = "Tom";
 
 public:
     CTable();
     CTable(std::string sName, int tabLen);
     CTable(CTable &pcOther);
+    ~CTable();
 
-    void del_Ctable(CTable &Ctab);
+
     void vSetName(std::string sName);
     bool bSetNewSize(int newSize);
     CTable *pcClone();
+    void v_mod_table(CTable *pcTab, int newSize);
+    void print_CTable();
 
 private:
     std::string sName;
