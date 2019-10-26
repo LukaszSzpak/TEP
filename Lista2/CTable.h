@@ -11,15 +11,18 @@
 class CTable {
     static const int DEF_SIZE = 5;
     const std::string DEF_NAME = "Tom";
+    const std::string DEF_PASS = "Pass5";
 
 public:
     CTable();
     CTable(std::string sName, int tabLen);
-    CTable(CTable &pcOther);
+    CTable(const CTable &pcOther);
     ~CTable();
 
 
     void vSetName(std::string sName);
+    bool vSetPassword(std::string sPass);
+    bool vChangePassword(std::string sPass);
     bool bSetNewSize(int newSize);
     CTable *pcClone();
     void v_mod_table(CTable *pcTab, int newSize);
@@ -27,8 +30,11 @@ public:
 
 private:
     std::string sName;
+    std::string sPassword;
     int tabLen;
     int *tab;
+
+    bool checkPass(std::string sPass);
 };
 
 

@@ -10,18 +10,21 @@ CTable::CTable() {
     this->sName = this->DEF_NAME;
     this->tabLen = this->DEF_SIZE;
     this->tab = new int[this->tabLen];
+    this->sPassword = this->DEF_PASS;
 }
 
 CTable::CTable(std::string sName, int tabLen) {
     this->sName = sName;
     this->tabLen = tabLen;
     this->tab = new int[tabLen];
+    this->sPassword = this->DEF_PASS;
 }
 
-CTable::CTable(CTable &pcOther) {
+CTable::CTable(const CTable &pcOther) {
     this->sName = pcOther.sName + "_copy";
     this->tabLen = pcOther.tabLen;
     this->tab = pcOther.tab;
+    this->sPassword = pcOther.sPassword;
 
     std::cout<<"Kopiuj "<<pcOther.sName<<"\n";
 }
@@ -63,4 +66,49 @@ void CTable::v_mod_table(CTable *pcTab, int newSize) {
 
 void CTable::print_CTable() {
     std::cout<<this->sName<<" "<<this->tabLen<<"\n";
+}
+
+bool CTable::vSetPassword(std::string sPass) {
+    if (this->checkPass(sPass)) {
+        this->sPassword = sPass;
+        return true;
+    }
+
+    return false;
+}
+
+bool CTable::vChangePassword(std::string sPass) {
+    if (this->checkPass(sPass)) {
+        int count = 0;
+
+        for (int i = 0; i < sPass.size() && i < sPass.size(); i++) {
+            if (sPass[i] != this->sPassword[i])
+                count++;
+        }
+
+        if (count >= 2 || (sPass.size() - this->sPassword.size() == 1 && count >= 1) || sPass.size() - this->sPassword.size() >= 2)
+            return true;
+    }
+    return false;
+}
+
+bool CTable::checkPass(std::string sPass) {
+    if(sPass.size() < 5)
+        return false;
+
+    bool isBig = false;
+    bool isSmall = false;
+    bool isSign = false;
+
+    for (int i = 0; i < sPass.size(); i++) {
+        if (sPass[i] >= 'A' && sPass[i] <= 'Z')
+            isBig = true;
+        else if (sPass[i] >= 'a' && sPass[i] <= 'z')
+            isSmall = true;
+        else if (sPass[i] >= '0' && sPass[i] <= '9')
+            isSign = true;
+    }
+
+    return isBig && isSign && isSmall;
+
 }
