@@ -73,6 +73,7 @@
       <updated>1571601868221</updated>
       <workItem from="1571601869721" duration="1249000" />
       <workItem from="1571603154818" duration="6201000" />
+      <workItem from="1572348631002" duration="2476000" />
     </task>
     <task id="LOCAL-00001" summary="Utworzenie projektu, dodanie struktury plików">
       <created>1571603251584</created>
@@ -99,7 +100,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

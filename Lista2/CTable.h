@@ -27,6 +27,9 @@ public:
     CTable *pcClone();
     void v_mod_table(CTable *pcTab, int newSize);
     void print_CTable();
+    void vSetValueAt(int iOffset, int iNewVal);
+    void printTable();
+    CTable *operator+(CTable &CTother);
 
 private:
     std::string sName;

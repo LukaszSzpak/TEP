@@ -112,3 +112,34 @@ bool CTable::checkPass(std::string sPass) {
     return isBig && isSign && isSmall;
 
 }
+
+void CTable::vSetValueAt(int iOffset, int iNewVal) {
+    if (iOffset >= this->tabLen)
+        return;
+    this->tab[iOffset] = iNewVal;
+}
+
+void CTable::printTable() {
+    for(int i = 0; i < this->tabLen; i++)
+        std::cout<<this->tab[i]<<" ";
+    std::cout<<"\n";
+}
+
+CTable *CTable::operator+(CTable &CTother) {
+    int newLen = this->tabLen + CTother.tabLen;
+    int *newTab = new int[newLen];
+    int i;
+
+    for (i = 0; i < this->tabLen; ++i) {
+        newTab[i] = this->tab[i];
+    }
+
+    for(; i < CTother.tabLen; i++) {
+        newTab[i] = CTother.tab[i - CTother.tabLen];
+    }
+
+    this->tab = newTab;
+    this->tabLen = newLen;
+
+    return this;
+}
