@@ -7,17 +7,17 @@
 
 
 CTable::CTable() {
-    this->sName = this->DEF_NAME;
-    this->tabLen = this->DEF_SIZE;
+    this->sName = DEF_NAME;
+    this->tabLen = DEF_SIZE;
     this->tab = new int[this->tabLen];
-    this->sPassword = this->DEF_PASS;
+    this->sPassword = DEF_PASS;
 }
 
 CTable::CTable(std::string sName, int tabLen) {
     this->sName = sName;
     this->tabLen = tabLen;
     this->tab = new int[tabLen];
-    this->sPassword = this->DEF_PASS;
+    this->sPassword = DEF_PASS;
 }
 
 CTable::CTable(const CTable &pcOther) {
@@ -125,12 +125,12 @@ void CTable::printTable() {
     std::cout<<"\n";
 }
 
-CTable *CTable::operator+(CTable &CTother) {
+CTable CTable::operator+(const CTable &CTother) {
     int newLen = this->tabLen + CTother.tabLen;
     int *newTab = new int[newLen];
     int i;
 
-    for (i = 0; i < this->tabLen; ++i) {
+    for (i = 0; i < this->tabLen; i++) {
         newTab[i] = this->tab[i];
     }
 
@@ -138,8 +138,18 @@ CTable *CTable::operator+(CTable &CTother) {
         newTab[i] = CTother.tab[i - CTother.tabLen];
     }
 
-    this->tab = newTab;
-    this->tabLen = newLen;
+    CTable newC = CTable("nowyTab", newLen);
+    newC.tab = newTab;
 
-    return this;
+    return newC;
+}
+
+void CTable::operator=(const CTable &pcOther) {
+    this->sName = pcOther.sName;
+    this->tabLen = pcOther.tabLen;
+    this->tab = new int[this->tabLen];
+
+    for (int i = 0; i < this->tabLen; ++i) {
+        this->tab[i] = pcOther.tab[i];
+    }
 }

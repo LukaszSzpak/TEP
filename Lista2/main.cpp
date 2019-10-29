@@ -14,18 +14,21 @@ int main() {
 
     delete(cTable);
 
-    CTable *c1 = new CTable();
-    CTable *c2 = new CTable();
+    CTable c1 =CTable();
+    CTable c2 =CTable();
 
-    c1->bSetNewSize(5);
-    c2->bSetNewSize(4);
+    c1.bSetNewSize(5);
+    c2.bSetNewSize(4);
     c1 = c2;
 
     std::cout<<"Testy \n";
-    c1->print_CTable();
-    c2->print_CTable();
+    c1.print_CTable();
+    c2.print_CTable();
 
-    c2->vSetValueAt(0, 5);
-    c2->printTable();
-    c1->printTable();
+    c2.vSetValueAt(2, 5);
+    c2.printTable();
+    c1.printTable();
+
+    c1 = c2 + c1;
+    c1.printTable();
 }

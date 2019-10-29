@@ -7,11 +7,11 @@
 #ifndef LISTA2_CTABLE_H
 #define LISTA2_CTABLE_H
 
+#define DEF_SIZE 5;
+#define DEF_NAME "Tom";
+#define DEF_PASS "Pass5";
 
 class CTable {
-    static const int DEF_SIZE = 5;
-    const std::string DEF_NAME = "Tom";
-    const std::string DEF_PASS = "Pass5";
 
 public:
     CTable();
@@ -29,7 +29,8 @@ public:
     void print_CTable();
     void vSetValueAt(int iOffset, int iNewVal);
     void printTable();
-    CTable *operator+(CTable &CTother);
+    CTable operator+(const CTable &CTother);
+    void operator=(const CTable &pcOther);
 
 private:
     std::string sName;
