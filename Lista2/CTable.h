@@ -31,6 +31,7 @@ public:
     void printTable();
     CTable operator+(const CTable &CTother);
     void operator=(const CTable &pcOther);
+    CTable operator<<(const int przesuniecie);
 
 private:
     std::string sName;

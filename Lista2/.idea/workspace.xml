@@ -16,11 +16,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CTable.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/CTable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Lista2.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lista2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Lista2.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +68,9 @@
       <updated>1571601868221</updated>
       <workItem from="1571601869721" duration="1249000" />
       <workItem from="1571603154818" duration="6201000" />
-      <workItem from="1572348631002" duration="3719000" />
+      <workItem from="1572348631002" duration="3829000" />
+      <workItem from="1572955063966" duration="109000" />
+      <workItem from="1572963705958" duration="629000" />
     </task>
     <task id="LOCAL-00001" summary="Utworzenie projektu, dodanie struktury plików">
       <created>1571603251584</created>
@@ -96,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572351804108</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dodany operator=">
+      <created>1572360549382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572360549382</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +123,7 @@
     <MESSAGE value="Utworzenie projektu, dodanie struktury plików" />
     <MESSAGE value="gotowa lista 2" />
     <MESSAGE value="dodanie fun zadania 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie fun zadania 3" />
+    <MESSAGE value="dodany operator=" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodany operator=" />
   </component>
 </project>

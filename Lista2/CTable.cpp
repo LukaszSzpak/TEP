@@ -153,3 +153,22 @@ void CTable::operator=(const CTable &pcOther) {
         this->tab[i] = pcOther.tab[i];
     }
 }
+
+CTable CTable::operator<<(const int przesuniecie) {
+    int *newTab = new int[this->tabLen];
+
+    for (int i = 0; i < this->tabLen; i++) {
+        if (i + przesuniecie < this->tabLen) {
+            newTab[i] = this->tab[i + przesuniecie];
+        } else {
+            newTab[i] = 0;
+        }
+    }
+
+    CTable newCTable;
+    newCTable.tab = newTab;
+    newCTable.tabLen = this->tabLen;
+    newCTable.sName = this->sName + "_tab";
+
+    return newCTable;
+}
