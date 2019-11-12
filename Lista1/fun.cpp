@@ -2,7 +2,6 @@
 // Created by RC on 15.10.2019.
 //
 #include <iostream>
-#include "fun.h"
 
             //* PIERWSZA CZESC *//
 //polecenie 1

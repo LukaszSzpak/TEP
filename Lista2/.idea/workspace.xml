@@ -12,10 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="946aa804-c088-434c-9657-5744edd4fa7c" name="Default Changelist" comment="Utworzenie projektu, dodanie struktury plików">
+      <change afterPath="$PROJECT_DIR$/../Lista4/Zakres.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lista4/Zakres.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Lista1/fun.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lista1/fun.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CTable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CTable.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/CTable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lista4/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lista4/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lista4/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lista4/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +72,8 @@
       <workItem from="1571603154818" duration="6201000" />
       <workItem from="1572348631002" duration="3829000" />
       <workItem from="1572955063966" duration="109000" />
-      <workItem from="1572963705958" duration="629000" />
+      <workItem from="1572963705958" duration="1003000" />
+      <workItem from="1573570584295" duration="563000" />
     </task>
     <task id="LOCAL-00001" summary="Utworzenie projektu, dodanie struktury plików">
       <created>1571603251584</created>
@@ -100,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572360549382</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dodanie operatora &lt;&lt;">
+      <created>1572964370501</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1572964370501</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +134,7 @@
     <MESSAGE value="gotowa lista 2" />
     <MESSAGE value="dodanie fun zadania 3" />
     <MESSAGE value="dodany operator=" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodany operator=" />
+    <MESSAGE value="dodanie operatora &lt;&lt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie operatora &lt;&lt;" />
   </component>
 </project>
