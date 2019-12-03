@@ -27,9 +27,10 @@ public:
     }
     T& operator*() { return(*pc_pointer); }
     T* operator->() { return(pc_pointer); }
-    T& operator=(const T* copy) {
+    CMySmartPointer& operator=(const CMySmartPointer* copy) {
         delete(this);
-        return new CMySmartPointer(copy);
+        this = new CMySmartPointer(copy);
+        return *this;
     }
 private:
     CRefCounter *pc_counter;

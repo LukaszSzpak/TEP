@@ -10,6 +10,9 @@ int main() {
     cmy1->print();
     cmy2->print();
 
+    cmy1 = cmy1;
+    cmy1->print();
+
 
     return 0;
 }
