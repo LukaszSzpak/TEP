@@ -16,3 +16,7 @@ std::string CTest::getName() {
 void CTest::print() {
     std::cout<<this->name<<"\n";
 }
+
+std::ostream &operator<<(std::ostream &os, const CTest &myC) {
+    return os<<myC.name;
+}

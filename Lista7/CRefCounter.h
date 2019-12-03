@@ -8,12 +8,15 @@
 
 class CRefCounter {
 public:
-    CRefCounter() { i_count; }
-    int iAdd() { return(++i_count); }
+    CRefCounter();
+    int iAdd();
     int iDec() { return(--i_count); };
     int iGet() { return(i_count); }
+    int iGetMax() { return max_count; };
 private:
     int i_count;
+    int max_count;
+    void check_max();
 };
 
 

@@ -7,6 +7,7 @@
 
 
 #include <string>
+#include <iostream>
 
 class CTest {
 private:
@@ -16,6 +17,7 @@ public:
     CTest(std::string name);
     std::string getName();
     void print();
+    friend std::ostream &operator<<(std::ostream &os, const CTest &myC);
 };
 
 

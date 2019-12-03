@@ -27,15 +27,39 @@ public:
     }
     T& operator*() { return(*pc_pointer); }
     T* operator->() { return(pc_pointer); }
-    CMySmartPointer& operator=(const CMySmartPointer* copy) {
-        delete(this);
-        this = new CMySmartPointer(copy);
-        return *this;
-    }
+    CMySmartPointer& operator=(const CMySmartPointer* copy);
+    void print_status();
 private:
     CRefCounter *pc_counter;
     T *pc_pointer;
 };
 
+template <typename T>
+CMySmartPointer<T>& CMySmartPointer<T>::operator=(const CMySmartPointer *copy)  {
+    if(!(this == copy && this->pc_pointer == copy->pc_pointer)) {
+        if (pc_counter->iDec() == 0) {
+            delete pc_pointer;
+            delete pc_counter;
+        }
+        this->pc_counter = copy->pc_counter;
+        this->pc_pointer = copy->pc_pointer;
+        this->pc_counter->iAdd();
+    }
+    return *this;
+}
+
+template <typename T>
+void CMySmartPointer<T>::print_status(){
+    std::cout<<"Jestem: "<<(*this->pc_pointer);
+    std::cout<<"\nMam odwolan: "<<this->pc_counter->iGet();
+    std::cout<<"\nMax odwolan: "<<this->pc_counter->iGetMax();
+}
+
+template <>
+void CMySmartPointer<std::string>::print_status(){
+    std::cout<<"Jestem: "<<this->pc_pointer;
+    std::cout<<"\nMam odwolan: "<<this->pc_counter->iGet();
+    std::cout<<"\nMax odwolan: "<<this->pc_counter->iGetMax();
+}
 
 #endif //LISTA7_CMYSMARTPOINTER_H
