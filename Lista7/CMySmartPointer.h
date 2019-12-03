@@ -27,7 +27,7 @@ public:
     }
     T& operator*() { return(*pc_pointer); }
     T* operator->() { return(pc_pointer); }
-    T* operator=(const T* copy) {
+    T& operator=(const T* copy) {
         delete(this);
         return new CMySmartPointer(copy);
     }

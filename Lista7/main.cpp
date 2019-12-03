@@ -8,6 +8,7 @@ int main() {
     CMySmartPointer<CTest> cmy2 = cmy1;
 
     cmy1->print();
+    cmy2->print();
 
 
     return 0;
