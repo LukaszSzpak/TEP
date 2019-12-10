@@ -20,7 +20,7 @@ CTab CTab::operator=(const CTab &cOther) {
     v_copy(cOther);
   //  std::cout << "op= ";
 
-    return std::move(*this);
+    return *this;
 }
 
 void CTab::v_copy(const CTab &cOther) {
@@ -49,7 +49,7 @@ CTab CTab::operator=(CTab &&cOther) {
     cOther.pi_tab = NULL;
  //   std::cout << "MOVE op= ";
 
-    return *this;
+    return std::move(*this);
 }
 
 bool CTab::bSetSize(int newSize) {
