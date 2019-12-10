@@ -12,7 +12,7 @@ public:
     int iGetSize() { return(i_size); }
 
     CTab operator=(const CTab &cOther);
-    CTab operator=(const CTab &&cOther);
+    CTab operator=(CTab &&cOther);
 
 private:
     void v_copy(const CTab &cOther);

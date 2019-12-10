@@ -17,7 +17,7 @@ public:
     CTable();
     CTable(std::string sName, int tabLen);
     CTable(const CTable &pcOther);
-    CTable(const CTable &&pcOther);
+    CTable(CTable &&pcOther);
     ~CTable();
 
 
@@ -31,7 +31,7 @@ public:
     void vSetValueAt(int iOffset, int iNewVal);
     void printTable();
     CTable operator+(const CTable &CTother);
-    CTable operator=(const CTable &&pcOther);
+    CTable operator=(CTable &&pcOther);
     CTable operator<<(const int przesuniecie);
 
 private:

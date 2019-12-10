@@ -29,13 +29,16 @@ CTable::CTable(const CTable &pcOther) {
     std::cout<<"Kopiuj "<<pcOther.sName<<"\n";
 }
 
-CTable::CTable(const CTable &&pcOther) {
+CTable::CTable( CTable &&pcOther) {
+    if(this->tab != NULL)
+        delete(this->tab);
+
     this->sName = pcOther.sName + "_copyMove";
     this->tabLen = pcOther.tabLen;
     this->tab = pcOther.tab;
     this->sPassword = pcOther.sPassword;
 
-    *pcOther.tab = NULL;
+    pcOther.tab = NULL;
 
     std::cout<<"Move";
 }
@@ -155,12 +158,15 @@ CTable CTable::operator+(const CTable &CTother) {
     return newC;
 }
 
-CTable CTable::operator=(const CTable &&pcOther) {
+CTable CTable::operator=(CTable &&pcOther) {
+    if(this->tab != NULL)
+        delete(this->tab);
+
     this->sName = pcOther.sName;
     this->tabLen = pcOther.tabLen;
     this->tab = pcOther.tab;
 
-    *pcOther.tab = NULL;
+    pcOther.tab = NULL;
     std::cout<<"MOVE op=";
 
     return *this;
