@@ -30,9 +30,6 @@ CTable::CTable(const CTable &pcOther) {
 }
 
 CTable::CTable( CTable &&pcOther) {
-    if(this->tab != NULL)
-        delete(this->tab);
-
     this->sName = pcOther.sName + "_copyMove";
     this->tabLen = pcOther.tabLen;
     this->tab = pcOther.tab;
@@ -169,7 +166,7 @@ CTable CTable::operator=(CTable &&pcOther) {
     pcOther.tab = NULL;
     std::cout<<"MOVE op=";
 
-    return *this;
+    return std::move(*this);
 }
 
 CTable CTable::operator<<(const int przesuniecie) {

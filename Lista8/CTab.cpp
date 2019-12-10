@@ -3,14 +3,14 @@
 
 CTab::CTab(const CTab &cOther) {
     v_copy(cOther);
-    std::cout << "Copy ";
+  //  std::cout << "Copy ";
 }
 
 CTab::~CTab() {
     if (pi_tab != NULL)
         delete pi_tab;
 
-    std::cout << "Destr ";
+  //  std::cout << "Destr ";
 }
 
 CTab CTab::operator=(const CTab &cOther) {
@@ -18,7 +18,7 @@ CTab CTab::operator=(const CTab &cOther) {
         delete pi_tab;
 
     v_copy(cOther);
-    std::cout << "op= ";
+  //  std::cout << "op= ";
 
     return(*this);
 }
@@ -32,14 +32,11 @@ void CTab::v_copy(const CTab &cOther) {
 }
 
 CTab::CTab(CTab &&cOther) {
-    if(this->pi_tab != NULL)
-        delete(this->pi_tab);
-
     pi_tab = cOther.pi_tab;
     i_size = cOther.i_size;
 
     cOther.pi_tab = NULL;
-    std::cout << "MOVE ";
+  //  std::cout << "MOVE ";
 }
 
 CTab CTab::operator=(CTab &&cOther) {
@@ -50,7 +47,7 @@ CTab CTab::operator=(CTab &&cOther) {
     i_size = cOther.i_size;
 
     cOther.pi_tab = NULL;
-    std::cout << "MOVE op= ";
+ //   std::cout << "MOVE op= ";
 
     return *this;
 }

@@ -1,4 +1,4 @@
-#define DEF_TAB_SIZE 10
+#define DEF_TAB_SIZE 100
 
 class CTab
 {
