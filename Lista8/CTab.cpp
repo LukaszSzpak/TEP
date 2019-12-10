@@ -20,7 +20,7 @@ CTab CTab::operator=(const CTab &cOther) {
     v_copy(cOther);
   //  std::cout << "op= ";
 
-    return(*this);
+    return std::move(*this);
 }
 
 void CTab::v_copy(const CTab &cOther) {
