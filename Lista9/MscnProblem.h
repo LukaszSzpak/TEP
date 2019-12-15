@@ -9,6 +9,10 @@
 #include <utility>
 #include <iostream>
 
+#define BRAK_BLEDU 0;
+#define BLEDNY_ZAKRES 1;
+#define BLEDNA_ILOSC 2;
+
 class MscnProblem {
 
 public:
@@ -20,34 +24,37 @@ public:
     void setIloscDystrybucji(int newIoscDystrybucji);
     int getIloscSklepow() const;
     void setIloscSklepow(int iloscSklepow);
-    int getWydajnoscDostawcow(int pozycja) const;
+    int getWydajnoscDostawcow(int pozycja);
     void setWydajnoscDostawcow(int wydajnoscDostawcow, int pozycja);
-    int getWydajnoscFabryk(int pozycja) const;
+    int getWydajnoscFabryk(int pozycja);
     void setWydajnoscFabryk(int wydajnoscFabryk, int pozycja);
-    int getWydajnoscCentrowDys(int pozycja) const;
+    int getWydajnoscCentrowDys(int pozycja);
     void setWydajnoscCentrowDys(int wydajnoscCentrowDys, int pozycja);
-    int getPotrzebySklepow(int pozycja) const;
+    int getPotrzebySklepow(int pozycja);
     void setPotrzebySklepow(int potrzebySklepow, int pozycja);
-    int getDostawcaFabryka(int pozX, int pozY) const;
+    int getDostawcaFabryka(int pozX, int pozY);
     void setDostawcaFabryka(int dostawcaFabryka, int pozX, int pozY);
-    int getFabrykaMagazyn(int pozX, int pozY) const;
+    int getFabrykaMagazyn(int pozX, int pozY);
     void setFabrykaMagazyn(int fabrykaMagazyn, int pozX, int pozY);
-    int getMagazynSklep(int pozX, int pozY) const;
+    int getMagazynSklep(int pozX, int pozY);
     void setMagazynSklep(int magazynSklep, int pozX, int pozY);
-    std::pair<int, int> getZakresDostawcaFabryka(int pozX, int pozY) const;
-    void setZakresDostawcaFabryka(std::pair<int, int> minmax, int pozX, int poxY);
-    std::pair<int, int> getZakresFabrykaMagazyn(int pozX, int pozY) const;
+    std::pair<int, int> getZakresDostawcaFabryka(int pozX, int pozY);
+    void setZakresDostawcaFabryka(std::pair<int, int> minmax, int pozX, int pozY);
+    std::pair<int, int> getZakresFabrykaMagazyn(int pozX, int pozY);
     void setZakresFabrykaMagazyn(std::pair<int, int> minmax, int pozX, int pozY);
-    std::pair<int, int> getZakresMagazynSklep(int pozX, int pozY) const;
+    std::pair<int, int> getZakresMagazynSklep(int pozX, int pozY);
     void setZakresMagazynSklep(std::pair<int, int> minmax, int pozX, int pozY);
-    int getKosztUslugDostawcy(int pozycja) const;
+    int getKosztUslugDostawcy(int pozycja);
     void setKosztUslugDostawcy(int kosztUslugDostawcy, int pozycja);
-    int getKosztKorzystaniaFabryki(int pozycja) const;
+    int getKosztKorzystaniaFabryki(int pozycja);
     void setKosztKorzystaniaFabryki(int kosztKorzystaniaFabryki, int pozycja);
-    int getKosztKorzystaniaCentra(int pozycja) const;
+    int getKosztKorzystaniaCentra(int pozycja);
     void setKosztKorzystaniaCentra(int kosztKorzystaniaCentra, int pozycja);
+    int getKodBledu() {return kodBledu;};
 
 private:
+    int kodBledu;
+
     int iloscDostawcow;
     int iloscFabryk;
     int iloscDystrybucji;
