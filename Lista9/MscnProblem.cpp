@@ -410,7 +410,7 @@ int MscnProblem::get_check(int **tab, int pozX, int pozY, int maxX, int maxY) {
         return -1;
 }
 
-int MscnProblem::set_check(int **tab, int wartosc, int pozX, int pozY, int maxX, int maxY) {
+void MscnProblem::set_check(int **tab, int wartosc, int pozX, int pozY, int maxX, int maxY) {
     this->kodBledu = BRAK_BLEDU
 
     if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
@@ -550,13 +550,15 @@ bool MscnProblem::sprawdzenie_tabelki() {
 
 bool MscnProblem::bConstraintsSatisfied(double *pdSolution, int *kodBledu) {
     *kodBledu = BRAK_BLEDU
+    this->pdSolutionDoMacierzy(pdSolution);
+
+    if (!this->czy_wszystko_istnieje()) {
+        *kodBledu = BRAK_TABLICY
+        return 0;
+    }
 
     if (!this->sprawdzenieOgraniczen()) {
         *kodBledu = BLAD_MINMAX
-        return false;
-    }
-    if (!this->czy_wszystko_istnieje()) {
-        *kodBledu = BRAK_TABLICY
         return false;
     }
 
@@ -566,5 +568,105 @@ bool MscnProblem::bConstraintsSatisfied(double *pdSolution, int *kodBledu) {
     }
 
     return true;
+}
+
+double MscnProblem::dGetQuality(double *pdSolution, int *kodBledu) {
+    *kodBledu = BRAK_BLEDU
+    this->pdSolutionDoMacierzy(pdSolution);
+
+    if (!this->czy_wszystko_istnieje()) {
+        *kodBledu = BRAK_TABLICY
+        return 0;
+    }
+
+    return this->policzZysk();
+}
+
+double MscnProblem::policzZysk() {
+    return this->policzP() - (this->policzKT() + this->policzKU());
+}
+
+void MscnProblem::pdSolutionDoMacierzy(double *pdSolution) {
+
+}
+
+double MscnProblem::policzP() {
+    double p = 0;
+
+    for (int i = 0; i < this->iloscSklepow; i++) {
+        double xm = 0;
+
+        for (int j = 0; j < this->iloscDystrybucji; j++)
+            xm += this->dostarczenie_magazyn_sklep[j][i];
+
+        xm *= this->zysk_sprzedazy_produktu[i];
+        p += xm;
+    }
+
+    return p;
+}
+
+void MscnProblem::set_check(int *tab, double wartosc, int pozycja, int maxPozycja) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozycja >= 0 && pozycja < maxPozycja)
+        tab[pozycja] = wartosc;
+    else
+        this->kodBledu = BLEDNY_ZAKRES
+}
+
+void MscnProblem::setZyskSprzedazyProduktu(double zysk, int pozycja) {
+    this->set_check(this->zysk_sprzedazy_produktu, zysk, pozycja, this->iloscSklepow);
+}
+
+double MscnProblem::policzKT() {
+    double KT = 0;
+
+    for (int i = 0; i < this->iloscDostawcow; i++) {
+        for (int j = 0; j < this->iloscFabryk; j++) {
+            KT += (this->dostawca_fabryka[i][j] * this->dostraczenie_dostawca_fabryka[i][j]);
+        }
+    }
+
+    for (int i = 0; i < this->iloscFabryk; i++) {
+        for (int j = 0; j < this->iloscDystrybucji; j++) {
+            KT += (this->fabryka_magazyn[i][j] * this->dostarczenie_fabryka_magazyn[i][j]);
+        }
+    }
+
+    for (int i = 0; i < this->iloscDystrybucji; i++) {
+        for (int j = 0; j < this->iloscSklepow; j++) {
+            KT += (this->magazyn_sklep[i][j] * this->dostarczenie_magazyn_sklep[i][j]);
+        }
+    }
+
+    return KT;
+}
+
+double MscnProblem::policzKU() {
+    double KU = 0;
+
+    for (int i = 0; i < this->iloscDostawcow; i++) {
+        for (int j = 0; j < this->iloscFabryk; j++) {
+            if (this->dostraczenie_dostawca_fabryka[i][j] > 0)
+                KU += this->koszt_uslug_dostawcy[i];
+        }
+    }
+
+    for (int i = 0; i < this->iloscFabryk; i++) {
+        for (int j = 0; j < this->iloscDystrybucji; j++) {
+            if (this->dostarczenie_fabryka_magazyn[i][j] > 0)
+                KU += this->koszt_korzystania_fabryki[i];
+        }
+    }
+
+    for (int i = 0; i < this->iloscDystrybucji; i++) {
+        for (int j = 0; j < this->iloscSklepow; j++) {
+            if (this->dostarczenie_magazyn_sklep[i][j] > 0)
+                KU += this->koszt_korzystania_centra[i];
+        }
+    }
+
+    return KU;
 }
 

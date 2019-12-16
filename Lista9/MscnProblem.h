@@ -59,6 +59,7 @@ public:
     void setKosztKorzystaniaFabryki(int kosztKorzystaniaFabryki, int pozycja);
     int getKosztKorzystaniaCentra(int pozycja);
     void setKosztKorzystaniaCentra(int kosztKorzystaniaCentra, int pozycja);
+    void setZyskSprzedazyProduktu(double zysk, int pozycja);
     int getKodBledu() {return kodBledu;};
 
     double dGetQuality(double *pdSolution, int *kodBledu);
@@ -92,12 +93,14 @@ private:
     int* koszt_uslug_dostawcy; //ud
     int* koszt_korzystania_fabryki; //uf
     int* koszt_korzystania_centra; //um
+    int* zysk_sprzedazy_produktu; //p
 
     void set_tab_dwu(int **tab, int rozX, int rozY);
     void set_tab_jedno(int *tab, int roz);
 
     int get_check(int** tab, int pozX, int pozY, int maxX, int maxY);
-    int set_check(int** tab, int wartosc, int pozX, int pozY, int maxX, int maxY);
+    void set_check(int** tab, int wartosc, int pozX, int pozY, int maxX, int maxY);
+    void set_check(int* tab, double wartosc, int pozycja, int maxPozycja);
 
     bool sprawdzenieOgraniczen();
     bool czy_wszystko_istnieje();
@@ -106,6 +109,13 @@ private:
     void set_zakres_magazyn_sklep();
     void set_zakres_fabryka_magazyn();
     void set_zakres_dostawca_fabryka();
+
+    double policzKT();
+    double policzKU();
+    double policzP();
+
+    double policzZysk();
+    void pdSolutionDoMacierzy(double *pdSolution);
 };
 
 
