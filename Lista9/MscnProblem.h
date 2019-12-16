@@ -12,6 +12,7 @@
 #define BRAK_BLEDU 0;
 #define BLEDNY_ZAKRES 1;
 #define BLEDNA_ILOSC 2;
+#define BRAK_TABLICY 3;
 
 class MscnProblem {
 
@@ -36,6 +37,12 @@ public:
     void setDostawcaFabryka(int dostawcaFabryka, int pozX, int pozY);
     int getFabrykaMagazyn(int pozX, int pozY);
     void setFabrykaMagazyn(int fabrykaMagazyn, int pozX, int pozY);
+    int getDostraczenieDostawcaFabryka(int pozX, int pozY);
+    void setDostraczenieDostawcaFabryka(int iloscDostarczana, int pozX, int pozY);
+    int getDostarczenieFabrykaMagazyn(int pozX, int pozY);
+    void setDostarczenieFabrykaMagazyn(int iloscDostarczana, int pozX, int pozY);
+    int getDostarczenieMagazynSklep(int pozX, int pozY);
+    void setDostarczenieMagazynSklep(int iloscDostarczana, int pozX, int pozY);
     int getMagazynSklep(int pozX, int pozY);
     void setMagazynSklep(int magazynSklep, int pozX, int pozY);
     std::pair<int, int> getZakresDostawcaFabryka(int pozX, int pozY);
@@ -52,47 +59,51 @@ public:
     void setKosztKorzystaniaCentra(int kosztKorzystaniaCentra, int pozycja);
     int getKodBledu() {return kodBledu;};
 
+    double dGetQuality(double *pdSolution, int *kodBledu);
+    bool bConstraintsSatisfied(double *pdSolution);
+
 private:
     int kodBledu;
 
-    int iloscDostawcow;
-    int iloscFabryk;
-    int iloscDystrybucji;
-    int iloscSklepow;
+    int iloscDostawcow; //D
+    int iloscFabryk; //F
+    int iloscDystrybucji; //M
+    int iloscSklepow;  //S
 
-    int* wydajnosc_dostawcow;
-    int* wydajnosc_fabryk;
-    int* wydajnosc_centrow_dys;
-    int* potrzeby_sklepow;
+    int* wydajnosc_dostawcow; //sd
+    int* wydajnosc_fabryk; //sf
+    int* wydajnosc_centrow_dys; //sm
+    int* potrzeby_sklepow; //ss
 
-    int** dostawca_fabryka;
-    int** fabryka_magazyn;
-    int** magazyn_sklep;
+    int** dostawca_fabryka; //cd
+    int** fabryka_magazyn; //cf
+    int** magazyn_sklep; //cm
 
-    std::pair<int, int>** zakres_dostawca_fabryka;
-    std::pair<int, int>** zakres_fabryka_magazyn;
-    std::pair<int, int>** zakres_magazyn_sklep;
+    int** dostraczenie_dostawca_fabryka; //xd
+    int** dostarczenie_fabryka_magazyn; //xf
+    int** dostarczenie_magazyn_sklep; //xm
 
-    int* koszt_uslug_dostawcy;
-    int* koszt_korzystania_fabryki;
-    int* koszt_korzystania_centra;
+    std::pair<int, int>** zakres_dostawca_fabryka; //xdminmax
+    std::pair<int, int>** zakres_fabryka_magazyn; //xfminmax
+    std::pair<int, int>** zakres_magazyn_sklep; //xmminmax
+
+    int* koszt_uslug_dostawcy; //ud
+    int* koszt_korzystania_fabryki; //uf
+    int* koszt_korzystania_centra; //um
+
+    void set_tab_dwu(int **tab, int rozX, int rozY);
+    void set_tab_jedno(int *tab, int roz);
+
+    int get_check(int** tab, int pozX, int pozY, int maxX, int maxY);
+    int set_check(int** tab, int wartosc, int pozX, int pozY, int maxX, int maxY);
+
+    bool sprawdzenieOgraniczen();
+    bool czy_wszystko_istnieje();
+    bool sprawdzenie_tabelki();
 
     void set_zakres_magazyn_sklep();
     void set_zakres_fabryka_magazyn();
     void set_zakres_dostawca_fabryka();
-
-    void set_magazyn_sklep();
-    void set_fabryka_magazyn();
-    void set_dostawca_fabryka();
-
-    void set_wydajnosc_dostawcow();
-    void set_wydajnosc_fabryk();
-    void set_wydajnosc_centrow_dys();
-    void set_potrzeby_sklepow();
-
-    void set_koszt_korzystania_centra();
-    void set_koszt_uslug_dostawcy();
-    void set_koszt_korzystania_fabryki();
 };
 
 
