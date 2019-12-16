@@ -476,3 +476,95 @@ bool MscnProblem::sprawdzenieOgraniczen() {
 
     return true;
 }
+
+bool MscnProblem::sprawdzenie_tabelki() {
+
+    for (int i = 0; i < this->iloscDostawcow; i++) {
+        double suma = 0;
+        for (int j = 0; j < this->iloscFabryk; j++) {
+            suma += this->dostraczenie_dostawca_fabryka[i][j]; //suma zamówien u danego dostawcy
+        }
+
+        if (suma > this->wydajnosc_dostawcow[i]) //czy zamowiono wiecej niz dostawca jest w stanie wyprodukowac
+            return false;
+    } // czy nie zamawia sie wiecej u dostawcy niz produkuja
+
+    for (int i = 0; i < this->iloscFabryk; i++) {
+        double suma = 0;
+        for (int j = 0; j < this->iloscDystrybucji; j++) {
+            suma += this->dostarczenie_fabryka_magazyn[i][j]; //suma zamówien w jednej fabryce
+        }
+
+        if (suma > this->wydajnosc_fabryk[i]) //czy zamowieono wiecej niz fabryka produkuje
+            return false;
+    } //czy nie zamawia wiecej niz fabryki produkuja
+
+    for (int i = 0; i < this->iloscDystrybucji; i++) {
+        double suma = 0;
+        for (int j = 0; j < this->iloscSklepow; j++) {
+            suma += this->dostarczenie_magazyn_sklep[i][j]; //suma zamowien w jednym magazynie
+        }
+
+        if (suma > this->wydajnosc_centrow_dys[i]) //czy zamowieono wiecej niz magazyn ma
+            return false;
+    } //czy nie zamawiaja wiecej niz magazyny maja
+
+    for (int i = 0; i < this->iloscSklepow; i++) {
+        double suma = 0;
+        for (int j = 0; j < this->iloscDystrybucji; j++) {
+            suma += this->dostarczenie_magazyn_sklep[j][i]; //suma zamowien danego sklepu
+        }
+
+        if (suma > this->potrzeby_sklepow[i]) //czy sklep zamowil wiecej niz potrzebuje
+            return false;
+    } //czy sklepu nie zamawiaja wiecej niz potrzebuja
+
+    for (int i = 0; i < iloscFabryk; i++) {
+        double sumaWejsc = 0;
+        double sumaWyjsc = 0;
+
+        for (int j = 0; j < this->iloscDostawcow; j++)
+            sumaWejsc += this->dostraczenie_dostawca_fabryka[j][i]; //suma wejsc towaru do danej fabryki
+        for (int j = 0; j < this->iloscDystrybucji; j++)
+            sumaWyjsc += this->dostarczenie_fabryka_magazyn[i][j]; //suma wyjsc produktow z danej fabryki
+
+        if (sumaWejsc < sumaWyjsc) //czy wychodzi wiecej niz wchodzi
+            return false;
+    }
+
+    for (int i = 0; i < this->iloscDystrybucji; i++) {
+        double sumaWejsc = 0;
+        double sumaWyjsc = 0;
+
+        for (int j = 0; j < this->iloscFabryk; j++)
+            sumaWejsc += this->dostarczenie_fabryka_magazyn[j][i]; //suma wejsc towarow do magazynu
+        for (int j = 0; i < this->iloscSklepow; j++)
+            sumaWyjsc += this->dostarczenie_magazyn_sklep[i][j]; //syma wyjsc towarow z magazynu
+
+        if (sumaWejsc < sumaWyjsc) //czy wychodzi wiecej niz wchodzi
+            return false;
+    }
+
+    return true;
+}
+
+bool MscnProblem::bConstraintsSatisfied(double *pdSolution, int *kodBledu) {
+    *kodBledu = BRAK_BLEDU
+
+    if (!this->sprawdzenieOgraniczen()) {
+        *kodBledu = BLAD_MINMAX
+        return false;
+    }
+    if (!this->czy_wszystko_istnieje()) {
+        *kodBledu = BRAK_TABLICY
+        return false;
+    }
+
+    if (!this->sprawdzenie_tabelki()) {
+        *kodBledu = BLAD_ILOSC_TOWAROW
+        return false;
+    }
+
+    return true;
+}
+

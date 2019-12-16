@@ -13,6 +13,8 @@
 #define BLEDNY_ZAKRES 1;
 #define BLEDNA_ILOSC 2;
 #define BRAK_TABLICY 3;
+#define BLAD_ILOSC_TOWAROW 4;
+#define BLAD_MINMAX 5;
 
 class MscnProblem {
 
@@ -60,7 +62,7 @@ public:
     int getKodBledu() {return kodBledu;};
 
     double dGetQuality(double *pdSolution, int *kodBledu);
-    bool bConstraintsSatisfied(double *pdSolution);
+    bool bConstraintsSatisfied(double *pdSolution, int *kodBledu);
 
 private:
     int kodBledu;
