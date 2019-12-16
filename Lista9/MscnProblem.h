@@ -27,38 +27,38 @@ public:
     void setIloscDystrybucji(int newIoscDystrybucji);
     int getIloscSklepow() const;
     void setIloscSklepow(int iloscSklepow);
-    int getWydajnoscDostawcow(int pozycja);
-    void setWydajnoscDostawcow(int wydajnoscDostawcow, int pozycja);
-    int getWydajnoscFabryk(int pozycja);
-    void setWydajnoscFabryk(int wydajnoscFabryk, int pozycja);
-    int getWydajnoscCentrowDys(int pozycja);
-    void setWydajnoscCentrowDys(int wydajnoscCentrowDys, int pozycja);
-    int getPotrzebySklepow(int pozycja);
-    void setPotrzebySklepow(int potrzebySklepow, int pozycja);
-    int getDostawcaFabryka(int pozX, int pozY);
-    void setDostawcaFabryka(int dostawcaFabryka, int pozX, int pozY);
-    int getFabrykaMagazyn(int pozX, int pozY);
-    void setFabrykaMagazyn(int fabrykaMagazyn, int pozX, int pozY);
-    int getDostraczenieDostawcaFabryka(int pozX, int pozY);
-    void setDostraczenieDostawcaFabryka(int iloscDostarczana, int pozX, int pozY);
-    int getDostarczenieFabrykaMagazyn(int pozX, int pozY);
-    void setDostarczenieFabrykaMagazyn(int iloscDostarczana, int pozX, int pozY);
-    int getDostarczenieMagazynSklep(int pozX, int pozY);
-    void setDostarczenieMagazynSklep(int iloscDostarczana, int pozX, int pozY);
-    int getMagazynSklep(int pozX, int pozY);
-    void setMagazynSklep(int magazynSklep, int pozX, int pozY);
-    std::pair<int, int> getZakresDostawcaFabryka(int pozX, int pozY);
-    void setZakresDostawcaFabryka(std::pair<int, int> minmax, int pozX, int pozY);
-    std::pair<int, int> getZakresFabrykaMagazyn(int pozX, int pozY);
-    void setZakresFabrykaMagazyn(std::pair<int, int> minmax, int pozX, int pozY);
-    std::pair<int, int> getZakresMagazynSklep(int pozX, int pozY);
-    void setZakresMagazynSklep(std::pair<int, int> minmax, int pozX, int pozY);
-    int getKosztUslugDostawcy(int pozycja);
-    void setKosztUslugDostawcy(int kosztUslugDostawcy, int pozycja);
-    int getKosztKorzystaniaFabryki(int pozycja);
-    void setKosztKorzystaniaFabryki(int kosztKorzystaniaFabryki, int pozycja);
-    int getKosztKorzystaniaCentra(int pozycja);
-    void setKosztKorzystaniaCentra(int kosztKorzystaniaCentra, int pozycja);
+    double getWydajnoscDostawcow(int pozycja);
+    void setWydajnoscDostawcow(double wydajnoscDostawcow, int pozycja);
+    double getWydajnoscFabryk(int pozycja);
+    void setWydajnoscFabryk(double wydajnoscFabryk, int pozycja);
+    double getWydajnoscCentrowDys(int pozycja);
+    void setWydajnoscCentrowDys(double wydajnoscCentrowDys, int pozycja);
+    double getPotrzebySklepow(int pozycja);
+    void setPotrzebySklepow(double potrzebySklepow, int pozycja);
+    double getDostawcaFabryka(int pozX, int pozY);
+    void setDostawcaFabryka(double dostawcaFabryka, int pozX, int pozY);
+    double getFabrykaMagazyn(int pozX, int pozY);
+    void setFabrykaMagazyn(double fabrykaMagazyn, int pozX, int pozY);
+    double getDostraczenieDostawcaFabryka(int pozX, int pozY);
+    void setDostraczenieDostawcaFabryka(double iloscDostarczana, int pozX, int pozY);
+    double getDostarczenieFabrykaMagazyn(int pozX, int pozY);
+    void setDostarczenieFabrykaMagazyn(double iloscDostarczana, int pozX, int pozY);
+    double getDostarczenieMagazynSklep(int pozX, int pozY);
+    void setDostarczenieMagazynSklep(double iloscDostarczana, int pozX, int pozY);
+    double getMagazynSklep(int pozX, int pozY);
+    void setMagazynSklep(double magazynSklep, int pozX, int pozY);
+    std::pair<double, double> getZakresDostawcaFabryka(int pozX, int pozY);
+    void setZakresDostawcaFabryka(std::pair<double, double> minmax, int pozX, int pozY);
+    std::pair<double, double> getZakresFabrykaMagazyn(int pozX, int pozY);
+    void setZakresFabrykaMagazyn(std::pair<double, double> minmax, int pozX, int pozY);
+    std::pair<double, double> getZakresMagazynSklep(int pozX, int pozY);
+    void setZakresMagazynSklep(std::pair<double, double> minmax, int pozX, int pozY);
+    double getKosztUslugDostawcy(int pozycja);
+    void setKosztUslugDostawcy(double kosztUslugDostawcy, int pozycja);
+    double getKosztKorzystaniaFabryki(int pozycja);
+    void setKosztKorzystaniaFabryki(double kosztKorzystaniaFabryki, int pozycja);
+    double getKosztKorzystaniaCentra(int pozycja);
+    void setKosztKorzystaniaCentra(double kosztKorzystaniaCentra, int pozycja);
     void setZyskSprzedazyProduktu(double zysk, int pozycja);
     int getKodBledu() {return kodBledu;};
 
@@ -73,34 +73,34 @@ private:
     int iloscDystrybucji; //M
     int iloscSklepow;  //S
 
-    int* wydajnosc_dostawcow; //sd
-    int* wydajnosc_fabryk; //sf
-    int* wydajnosc_centrow_dys; //sm
-    int* potrzeby_sklepow; //ss
+    double* wydajnosc_dostawcow; //sd
+    double* wydajnosc_fabryk; //sf
+    double* wydajnosc_centrow_dys; //sm
+    double* potrzeby_sklepow; //ss
 
-    int** dostawca_fabryka; //cd
-    int** fabryka_magazyn; //cf
-    int** magazyn_sklep; //cm
+    double** dostawca_fabryka; //cd
+    double** fabryka_magazyn; //cf
+    double** magazyn_sklep; //cm
 
-    int** dostraczenie_dostawca_fabryka; //xd
-    int** dostarczenie_fabryka_magazyn; //xf
-    int** dostarczenie_magazyn_sklep; //xm
+    double** dostraczenie_dostawca_fabryka; //xd
+    double** dostarczenie_fabryka_magazyn; //xf
+    double** dostarczenie_magazyn_sklep; //xm
 
-    std::pair<int, int>** zakres_dostawca_fabryka; //xdminmax
-    std::pair<int, int>** zakres_fabryka_magazyn; //xfminmax
-    std::pair<int, int>** zakres_magazyn_sklep; //xmminmax
+    std::pair<double, double>** zakres_dostawca_fabryka; //xdminmax
+    std::pair<double, double>** zakres_fabryka_magazyn; //xfminmax
+    std::pair<double, double>** zakres_magazyn_sklep; //xmminmax
 
-    int* koszt_uslug_dostawcy; //ud
-    int* koszt_korzystania_fabryki; //uf
-    int* koszt_korzystania_centra; //um
-    int* zysk_sprzedazy_produktu; //p
+    double* koszt_uslug_dostawcy; //ud
+    double* koszt_korzystania_fabryki; //uf
+    double* koszt_korzystania_centra; //um
+    double* zysk_sprzedazy_produktu; //p
 
-    void set_tab_dwu(int **tab, int rozX, int rozY);
-    void set_tab_jedno(int *tab, int roz);
+    void set_tab_dwu(double **tab, int rozX, int rozY);
+    void set_tab_jedno(double *tab, int roz);
 
-    int get_check(int** tab, int pozX, int pozY, int maxX, int maxY);
-    void set_check(int** tab, int wartosc, int pozX, int pozY, int maxX, int maxY);
-    void set_check(int* tab, double wartosc, int pozycja, int maxPozycja);
+    double get_check(double** tab, int pozX, int pozY, int maxX, int maxY);
+    void set_check(double** tab, double wartosc, int pozX, int pozY, int maxX, int maxY);
+    void set_check(double* tab, double wartosc, int pozycja, int maxPozycja);
 
     bool sprawdzenieOgraniczen();
     bool czy_wszystko_istnieje();
