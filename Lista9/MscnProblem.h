@@ -65,6 +65,7 @@ public:
 
     double dGetQuality(double *pdSolution, int *kodBledu);
     bool bConstraintsSatisfied(double *pdSolution, int *kodBledu);
+    void utworzTabliceIMacierze();
 
 private:
     int kodBledu;
@@ -96,8 +97,8 @@ private:
     double* koszt_korzystania_centra; //um
     double* zysk_sprzedazy_produktu; //p
 
-    void set_tab_dwu(double **tab, int rozX, int rozY);
-    void set_tab_jedno(double *tab, int roz);
+    void set_tab_dwu(double **(*tab), int rozX, int rozY);
+    void set_tab_jedno(double *(*tab), int roz);
 
     double get_check(double** tab, int pozX, int pozY, int maxX, int maxY);
     void set_check(double** tab, double wartosc, int pozX, int pozY, int maxX, int maxY);

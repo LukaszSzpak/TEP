@@ -14,15 +14,15 @@ void MscnProblem::setIloscDostawcow(int newIloscDostawcow) {
     if (newIloscDostawcow > 0) {
         this->iloscDostawcow = newIloscDostawcow;
 
-        this->set_tab_dwu(this->dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
-        this->set_tab_dwu(this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+        this->set_tab_dwu(&this->dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+        this->set_tab_dwu(&this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
 
-        this->set_tab_jedno(this->koszt_uslug_dostawcy, this->iloscDostawcow);
-        this->set_tab_jedno(this->wydajnosc_dostawcow, this->iloscDostawcow);
+        this->set_tab_jedno(&this->koszt_uslug_dostawcy, this->iloscDostawcow);
+        this->set_tab_jedno(&this->wydajnosc_dostawcow, this->iloscDostawcow);
 
         this->set_zakres_dostawca_fabryka();
 
-        this->set_tab_dwu(this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+        this->set_tab_dwu(&this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
 
     } else
         this->kodBledu = BLEDNA_ILOSC
@@ -39,17 +39,17 @@ void MscnProblem::setIloscFabryk(int newiloscFabryk) {
     if (newiloscFabryk > 0) {
         this->iloscFabryk = newiloscFabryk;
 
-        this->set_tab_jedno(this->koszt_korzystania_fabryki, this->iloscFabryk);
-        this->set_tab_jedno(this->wydajnosc_fabryk, this->iloscFabryk);
+        this->set_tab_jedno(&this->koszt_korzystania_fabryki, this->iloscFabryk);
+        this->set_tab_jedno(&this->wydajnosc_fabryk, this->iloscFabryk);
 
-        this->set_tab_dwu(this->dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
-        this->set_tab_dwu(this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
+        this->set_tab_dwu(&this->dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+        this->set_tab_dwu(&this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
 
         this->set_zakres_fabryka_magazyn();
         this->set_zakres_dostawca_fabryka();
 
-        this->set_tab_dwu(this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
-        this->set_tab_dwu(this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
+        this->set_tab_dwu(&this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+        this->set_tab_dwu(&this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
     } else
         this->kodBledu = BLEDNA_ILOSC
 
@@ -65,17 +65,17 @@ void MscnProblem::setIloscDystrybucji(int newIoscDystrybucji) {
     if (newIoscDystrybucji > 0) {
         this->iloscDystrybucji = newIoscDystrybucji;
 
-        this->set_tab_jedno(this->koszt_korzystania_centra, this->iloscDystrybucji);
-        this->set_tab_jedno(this->wydajnosc_centrow_dys, this->iloscDystrybucji);
+        this->set_tab_jedno(&this->koszt_korzystania_centra, this->iloscDystrybucji);
+        this->set_tab_jedno(&this->wydajnosc_centrow_dys, this->iloscDystrybucji);
 
-        this->set_tab_dwu(this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
-        this->set_tab_dwu(this->magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
+        this->set_tab_dwu(&this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
+        this->set_tab_dwu(&this->magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
 
         this->set_zakres_fabryka_magazyn();
         this->set_zakres_magazyn_sklep();
 
-        this->set_tab_dwu(this->dostarczenie_fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
-        this->set_tab_dwu(this->dostarczenie_magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
+        this->set_tab_dwu(&this->dostarczenie_fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
+        this->set_tab_dwu(&this->dostarczenie_magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
     } else
         this->kodBledu = BLEDNA_ILOSC
 
@@ -91,12 +91,12 @@ void MscnProblem::setIloscSklepow(int newiloscSklepow) {
     if (newiloscSklepow > 0) {
         this->iloscSklepow = newiloscSklepow;
 
-        this->set_tab_jedno(this->potrzeby_sklepow, this->iloscSklepow);
+        this->set_tab_jedno(&this->potrzeby_sklepow, this->iloscSklepow);
 
         this->set_zakres_magazyn_sklep();
 
-        this->set_tab_dwu(this->magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
-        this->set_tab_dwu(this->dostarczenie_magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
+        this->set_tab_dwu(&this->magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
+        this->set_tab_dwu(&this->dostarczenie_magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
 
     } else
         this->kodBledu = BLEDNA_ILOSC
@@ -383,21 +383,21 @@ void MscnProblem::setKosztKorzystaniaCentra(double kosztKorzystaniaCentra, int p
         this->kodBledu = BLEDNY_ZAKRES
 }
 
-void MscnProblem::set_tab_dwu(double **tab, int rozX, int rozY) {
-    if (tab != nullptr)
-        delete[](tab);
+void MscnProblem::set_tab_dwu(double **(*tab), int rozX, int rozY) {
+    if ((*tab) != nullptr)
+        delete[](*tab);
 
-    tab = new double*[rozX];
+    (*tab) = new double*[rozX];
     for (int i = 0; i < rozX; ++i) {
-        tab[i] = new double[rozY];
+        (*tab)[i] = new double[rozY];
     }
 }
 
-void MscnProblem::set_tab_jedno(double *tab, int roz) {
-    if (tab != nullptr)
+void MscnProblem::set_tab_jedno(double **tab, int roz) {
+    if ((*tab) != nullptr)
         delete(tab);
 
-    tab = new double[roz];
+    (*tab) = new double[roz];
 }
 
 double MscnProblem::get_check(double **tab, int pozX, int pozY, int maxX, int maxY) {
@@ -692,5 +692,28 @@ double MscnProblem::policzKU() {
     }
 
     return KU;
+}
+
+void MscnProblem::utworzTabliceIMacierze() {
+    this->set_tab_dwu(&this->dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+    this->set_tab_dwu(&this->fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
+    this->set_tab_dwu(&this->magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
+
+    this->set_tab_dwu(&this->dostraczenie_dostawca_fabryka, this->iloscDostawcow, this->iloscFabryk);
+    this->set_tab_dwu(&this->dostarczenie_fabryka_magazyn, this->iloscFabryk, this->iloscDystrybucji);
+    this->set_tab_dwu(&this->dostarczenie_magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
+
+    this->set_tab_jedno(&this->koszt_uslug_dostawcy, this->iloscDostawcow);
+    this->set_tab_jedno(&this->koszt_korzystania_fabryki, this->iloscFabryk);
+    this->set_tab_jedno(&this->koszt_korzystania_centra, this->iloscDystrybucji);
+
+    this->set_tab_jedno(&this->wydajnosc_dostawcow, this->iloscDostawcow);
+    this->set_tab_jedno(&this->wydajnosc_fabryk, this->iloscFabryk);
+    this->set_tab_jedno(&this->wydajnosc_centrow_dys, this->iloscDystrybucji);
+    this->set_tab_jedno(&this->potrzeby_sklepow, this->iloscSklepow);
+
+    this->set_zakres_dostawca_fabryka();
+    this->set_zakres_fabryka_magazyn();
+    this->set_zakres_magazyn_sklep();
 }
 
