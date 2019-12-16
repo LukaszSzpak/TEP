@@ -454,3 +454,25 @@ bool MscnProblem::czy_wszystko_istnieje() {
              || this->koszt_korzystania_fabryki == nullptr || this->koszt_uslug_dostawcy == nullptr);
 
 }
+
+bool MscnProblem::sprawdzenieOgraniczen() {
+    for (int i = 0; i < this->iloscDostawcow; ++i)
+        for (int j = 0; j < this->iloscFabryk; ++j)
+            if (this->zakres_dostawca_fabryka[i][j].first > this->dostraczenie_dostawca_fabryka[i][j] ||
+                    this->zakres_dostawca_fabryka[i][j].second < this->dostraczenie_dostawca_fabryka[i][j])
+                return false;
+
+    for (int i = 0; i < this->iloscFabryk; i++)
+        for (int j = 0; j < this->iloscDystrybucji; j++)
+            if (this->zakres_fabryka_magazyn[i][j].first > this->dostarczenie_fabryka_magazyn[i][j] ||
+                    this->zakres_fabryka_magazyn[i][j].second < this->dostarczenie_fabryka_magazyn[i][j])
+                return false;
+
+    for (int i = 0; i < this->iloscDystrybucji; i++)
+        for (int j = 0; j < this->iloscSklepow; j++)
+            if (this->zakres_magazyn_sklep[i][j].first > this->dostarczenie_magazyn_sklep[i][j] ||
+                    this->zakres_magazyn_sklep[i][j].second < this->dostarczenie_magazyn_sklep[i][j])
+                return false;
+
+    return true;
+}
