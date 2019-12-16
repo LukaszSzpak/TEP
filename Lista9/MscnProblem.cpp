@@ -207,7 +207,7 @@ void MscnProblem::setPotrzebySklepow(double potrzebySklepow, int pozycja) {
     this->kodBledu = BRAK_BLEDU
 
     if (pozycja >= 0 && pozycja < this->iloscSklepow)
-        this->potrzeby_sklepow[potrzebySklepow] = potrzebySklepow;
+        this->potrzeby_sklepow[pozycja] = potrzebySklepow;
     else
         this->kodBledu = BLEDNY_ZAKRES
 }
@@ -587,7 +587,31 @@ double MscnProblem::policzZysk() {
 }
 
 void MscnProblem::pdSolutionDoMacierzy(double *pdSolution) {
+    if (pdSolution == nullptr) {
+        this->kodBledu = BRAK_TABLICY;
+        return;
+    }
 
+    int rozmiar = (this->iloscSklepow * this->iloscDystrybucji)  + (this->iloscDystrybucji * this->iloscFabryk)
+            + (this->iloscFabryk * this->iloscDostawcow);
+    for (int l = 0; l < rozmiar; ++l)
+        if (pdSolution[l] < 0) {
+            this->kodBledu = BLEDNA_WARTOSC
+            return;
+        }
+
+    int i = 0;
+    for (int j = 0; j < this->iloscDostawcow; j++)
+        for (int k = 0; k < this->iloscFabryk; k++, i++)
+            this->dostraczenie_dostawca_fabryka[j][k] = pdSolution[i];
+
+    for (int j = 0; j < this->iloscFabryk; j++)
+        for (int k = 0; k < this->iloscDystrybucji; k++, i++)
+            this->dostarczenie_fabryka_magazyn[j][k] = pdSolution[i];
+
+    for (int j = 0; j < this->iloscDystrybucji; j++)
+        for (int k = 0; k < this->iloscSklepow; k++, i++)
+            this->dostarczenie_magazyn_sklep[j][k] = pdSolution[i];
 }
 
 double MscnProblem::policzP() {

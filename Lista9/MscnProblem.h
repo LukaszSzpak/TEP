@@ -15,6 +15,7 @@
 #define BRAK_TABLICY 3;
 #define BLAD_ILOSC_TOWAROW 4;
 #define BLAD_MINMAX 5;
+#define BLEDNA_WARTOSC 6;
 
 class MscnProblem {
 
