@@ -102,7 +102,7 @@ private:
 
     double get_check(double** tab, int pozX, int pozY, int maxX, int maxY);
     void set_check(double** tab, double wartosc, int pozX, int pozY, int maxX, int maxY);
-    void set_check(double* tab, double wartosc, int pozycja, int maxPozycja);
+    void set_check(double *tab, double wartosc, int pozycja, int maxPozycja);
 
     bool sprawdzenieOgraniczen();
     bool czy_wszystko_istnieje();

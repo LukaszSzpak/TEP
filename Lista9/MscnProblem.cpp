@@ -98,6 +98,8 @@ void MscnProblem::setIloscSklepow(int newiloscSklepow) {
         this->set_tab_dwu(&this->magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
         this->set_tab_dwu(&this->dostarczenie_magazyn_sklep, this->iloscDystrybucji, this->iloscSklepow);
 
+        this->set_tab_jedno(&this->zysk_sprzedazy_produktu, this->iloscSklepow);
+
     } else
         this->kodBledu = BLEDNA_ILOSC
 }
@@ -715,5 +717,7 @@ void MscnProblem::utworzTabliceIMacierze() {
     this->set_zakres_dostawca_fabryka();
     this->set_zakres_fabryka_magazyn();
     this->set_zakres_magazyn_sklep();
+
+    this->set_tab_jedno(&this->zysk_sprzedazy_produktu, this->iloscSklepow);
 }
 
