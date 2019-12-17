@@ -18,6 +18,10 @@ public:
 private:
     std::string nazwaPliku;
     std::basic_ifstream<char> plikRozwiazania;
+
+    std::string getString();
+    double getDouble();
+    int getInt();
 };
 
 
