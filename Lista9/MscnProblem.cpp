@@ -266,7 +266,7 @@ void MscnProblem::setMagazynSklep(double magazynSklep, int pozX, int pozY) {
     this->kodBledu = BRAK_BLEDU
 
     if (pozX >= 0 && pozX < this->iloscDystrybucji && pozY >= 0 && pozY < this->iloscSklepow)
-        this->magazyn_sklep[pozX][pozY = magazynSklep];
+        this->magazyn_sklep[pozX][pozY] = magazynSklep;
     else
         this->kodBledu = BLEDNY_ZAKRES
 }
