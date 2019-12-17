@@ -135,290 +135,107 @@ void MscnProblem::set_zakres_dostawca_fabryka() {
 }
 
 double MscnProblem::getWydajnoscDostawcow(int pozycja)  {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDostawcow)
-        return this->wydajnosc_dostawcow[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
-
+    return this->get_check(this->wydajnosc_dostawcow, pozycja, this->iloscDostawcow);
 }
 
 void MscnProblem::setWydajnoscDostawcow(double wydajnoscDostawcow, int pozycja) {
-    this->kodBledu = 0;
-
-    if (pozycja >= 0 && pozycja < this->iloscDostawcow)
-        this->wydajnosc_dostawcow[pozycja] = wydajnoscDostawcow;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
-
+    this->set_check(this->wydajnosc_dostawcow, wydajnoscDostawcow, pozycja, this->iloscDostawcow);
 }
 
 double MscnProblem::getWydajnoscFabryk(int pozycja) {
-    this->kodBledu = 0;
-
-    if (pozycja >= 0 && pozycja < this->iloscFabryk)
-        return this->wydajnosc_fabryk[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->wydajnosc_fabryk, pozycja, this->iloscFabryk);
 }
 
 void MscnProblem::setWydajnoscFabryk(double wydajnoscFabryk, int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscFabryk)
-        this->wydajnosc_fabryk[pozycja] = wydajnoscFabryk;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
-
+    this->set_check(this->wydajnosc_fabryk, wydajnoscFabryk, pozycja, this->iloscFabryk);
 }
 
 double MscnProblem::getWydajnoscCentrowDys(int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDystrybucji)
-        return this->wydajnosc_centrow_dys[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->wydajnosc_centrow_dys, pozycja, this->iloscDystrybucji);
 }
 
 void MscnProblem::setWydajnoscCentrowDys(double wydajnoscCentrowDys, int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDystrybucji)
-        this->wydajnosc_centrow_dys[pozycja] = wydajnoscCentrowDys;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
-
+    this->set_check(this->wydajnosc_centrow_dys, wydajnoscCentrowDys, pozycja, this->iloscDystrybucji);
 }
 
 double MscnProblem::getPotrzebySklepow(int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscSklepow)
-        return this->potrzeby_sklepow[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->potrzeby_sklepow, pozycja, this->iloscSklepow);
 }
 
 void MscnProblem::setPotrzebySklepow(double potrzebySklepow, int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscSklepow)
-        this->potrzeby_sklepow[pozycja] = potrzebySklepow;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->potrzeby_sklepow, potrzebySklepow, pozycja, this->iloscSklepow);
 }
 
 double MscnProblem::getDostawcaFabryka(int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDostawcow && pozY >= 0 && pozY < this->iloscFabryk)
-        return this->dostawca_fabryka[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->dostawca_fabryka, pozX, pozY, this->iloscDostawcow, this->iloscFabryk);
 }
 
 void MscnProblem::setDostawcaFabryka(double dostawcaFabryka, int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDostawcow && pozY >= 0 && pozY < this->iloscFabryk)
-        this->dostawca_fabryka[pozX][pozY] = dostawcaFabryka;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->dostawca_fabryka, dostawcaFabryka, pozX, pozY, this->iloscDostawcow, this->iloscFabryk);
 }
 
 double MscnProblem::getFabrykaMagazyn(int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscFabryk && pozY >= 0 && pozY < this->iloscDystrybucji)
-        return this->fabryka_magazyn[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->fabryka_magazyn, pozX, pozY, this->iloscFabryk, this->iloscDystrybucji);
 }
 
 void MscnProblem::setFabrykaMagazyn(double fabrykaMagazyn, int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscFabryk && pozY >= 0 && pozY < this->iloscDystrybucji)
-         this->fabryka_magazyn[pozX][pozY] = fabrykaMagazyn;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->fabryka_magazyn, fabrykaMagazyn, pozX, pozY, this->iloscFabryk, this->iloscDystrybucji);
 }
 
 double MscnProblem::getMagazynSklep(int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDystrybucji && pozY >= 0 && pozY < this->iloscSklepow)
-        return this->magazyn_sklep[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->magazyn_sklep, pozX, pozY, this->iloscDystrybucji, this->iloscSklepow);
 }
 
 void MscnProblem::setMagazynSklep(double magazynSklep, int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDystrybucji && pozY >= 0 && pozY < this->iloscSklepow)
-        this->magazyn_sklep[pozX][pozY] = magazynSklep;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->magazyn_sklep, magazynSklep, pozX, pozY, this->iloscDystrybucji, this->iloscSklepow);
 }
 
 std::pair<double, double> MscnProblem::getZakresDostawcaFabryka(int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDostawcow && pozY >= 0 && pozY < this->iloscFabryk)
-        return this->zakres_dostawca_fabryka[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return std::move(std::pair<double, double>(-1, -1));
+    return this->get_check(this->zakres_dostawca_fabryka, pozX, pozY, this->iloscDostawcow, this->iloscFabryk);
 }
 
 void MscnProblem::setZakresDostawcaFabryka(std::pair<double, double> minmax, int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDostawcow && pozY >= 0 && pozY < this->iloscFabryk)
-        this->zakres_dostawca_fabryka[pozX][pozY] = minmax;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->zakres_dostawca_fabryka, minmax, pozX, pozY, this->iloscDostawcow, this->iloscFabryk);
 }
 
 std::pair<double, double> MscnProblem::getZakresFabrykaMagazyn(int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscFabryk && pozY >= 0 && pozY < this->iloscDystrybucji)
-        return this->zakres_fabryka_magazyn[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return std::move(std::pair<double, double>(-1, -1));
+    return this->get_check(this->zakres_fabryka_magazyn, pozX, pozY, this->iloscFabryk, this->iloscDystrybucji);
 }
 
 void MscnProblem::setZakresFabrykaMagazyn(std::pair<double, double> minmax, int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscFabryk && pozY >= 0 && pozY < this->iloscDystrybucji)
-        this->zakres_fabryka_magazyn[pozX][pozY] = minmax;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->zakres_fabryka_magazyn, minmax, pozX, pozY, this->iloscFabryk, this->iloscDystrybucji);
 }
 
 std::pair<double, double> MscnProblem::getZakresMagazynSklep(int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDystrybucji && pozY >= 0 && pozY < this->iloscSklepow)
-        return this->zakres_magazyn_sklep[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return std::move(std::pair<double, double>(-1, -1));
+    return this->get_check(this->zakres_magazyn_sklep, pozX, pozY, this->iloscDystrybucji, this->iloscSklepow);
 }
 
 void MscnProblem::setZakresMagazynSklep(std::pair<double, double> minmax, int pozX, int pozY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < this->iloscDystrybucji && pozY >= 0 && pozY < this->iloscSklepow)
-        this->zakres_magazyn_sklep[pozX][pozY] = minmax;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->zakres_magazyn_sklep, minmax, pozX, pozY, this->iloscDystrybucji, this->iloscSklepow);
 }
 
 double MscnProblem::getKosztUslugDostawcy(int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDostawcow)
-        return this->koszt_uslug_dostawcy[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->koszt_uslug_dostawcy, pozycja, this->iloscDostawcow);
 }
 
 void MscnProblem::setKosztUslugDostawcy(double kosztUslugDostawcy, int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDostawcow)
-        this->koszt_uslug_dostawcy[pozycja] = kosztUslugDostawcy;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->koszt_uslug_dostawcy, kosztUslugDostawcy, pozycja, this->iloscDostawcow);
 }
 
 double MscnProblem::getKosztKorzystaniaFabryki(int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscFabryk)
-        return this->koszt_korzystania_fabryki[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->koszt_korzystania_fabryki, pozycja, this->iloscFabryk);
 }
 
 void MscnProblem::setKosztKorzystaniaFabryki(double kosztKorzystaniaFabryki, int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscFabryk)
-        this->koszt_korzystania_fabryki[pozycja] = kosztKorzystaniaFabryki;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->koszt_korzystania_fabryki, kosztKorzystaniaFabryki, pozycja, this->iloscFabryk);
 }
 
 double MscnProblem::getKosztKorzystaniaCentra(int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDystrybucji)
-        return this->koszt_korzystania_centra[pozycja];
-
-    this->kodBledu = BLEDNY_ZAKRES
-    return -1;
+    return this->get_check(this->koszt_korzystania_centra, pozycja, this->iloscDystrybucji);
 }
 
 void MscnProblem::setKosztKorzystaniaCentra(double kosztKorzystaniaCentra, int pozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < this->iloscDystrybucji)
-        this->koszt_korzystania_centra[pozycja] = kosztKorzystaniaCentra;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
-}
-
-void MscnProblem::set_tab_dwu(double **(*tab), int rozX, int rozY) {
-    if ((*tab) != nullptr)
-        delete[](*tab);
-
-    (*tab) = new double*[rozX];
-    for (int i = 0; i < rozX; ++i) {
-        (*tab)[i] = new double[rozY];
-    }
-}
-
-void MscnProblem::set_tab_jedno(double **tab, int roz) {
-    if ((*tab) != nullptr)
-        delete(*tab);
-
-    (*tab) = new double[roz];
-}
-
-double MscnProblem::get_check(double **tab, int pozX, int pozY, int maxX, int maxY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
-        return tab[pozX][pozY];
-
-    this->kodBledu = BLEDNY_ZAKRES
-        return -1;
-}
-
-void MscnProblem::set_check(double **tab, double wartosc, int pozX, int pozY, int maxX, int maxY) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
-        tab[pozX][pozY] = wartosc;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
+    this->set_check(this->koszt_korzystania_centra, kosztKorzystaniaCentra, pozycja, this->iloscDystrybucji);
 }
 
 double MscnProblem::getDostraczenieDostawcaFabryka(int pozX, int pozY) {
@@ -632,15 +449,6 @@ double MscnProblem::policzP() {
     return p;
 }
 
-void MscnProblem::set_check(double *tab, double wartosc, int pozycja, int maxPozycja) {
-    this->kodBledu = BRAK_BLEDU
-
-    if (pozycja >= 0 && pozycja < maxPozycja)
-        tab[pozycja] = wartosc;
-    else
-        this->kodBledu = BLEDNY_ZAKRES
-}
-
 void MscnProblem::setZyskSprzedazyProduktu(double zysk, int pozycja) {
     this->set_check(this->zysk_sprzedazy_produktu, zysk, pozycja, this->iloscSklepow);
 }
@@ -721,3 +529,76 @@ void MscnProblem::utworzTabliceIMacierze() {
     this->set_tab_jedno(&this->zysk_sprzedazy_produktu, this->iloscSklepow);
 }
 
+void MscnProblem::set_tab_dwu(double **(*tab), int rozX, int rozY) {
+    if ((*tab) != nullptr)
+        delete[](*tab);
+
+    (*tab) = new double*[rozX];
+    for (int i = 0; i < rozX; ++i) {
+        (*tab)[i] = new double[rozY];
+    }
+}
+
+void MscnProblem::set_tab_jedno(double **tab, int roz) {
+    if ((*tab) != nullptr)
+        delete(*tab);
+
+    (*tab) = new double[roz];
+}
+
+double MscnProblem::get_check(double **tab, int pozX, int pozY, int maxX, int maxY) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
+        return tab[pozX][pozY];
+
+    this->kodBledu = BLEDNY_ZAKRES
+    return -1;
+}
+
+std::pair<double, double> MscnProblem::get_check(std::pair<double, double> **tab, int pozX, int pozY, int maxX, int maxY) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
+        return tab[pozX][pozY];
+
+    this->kodBledu = BLEDNY_ZAKRES
+    return std::move(std::pair<double, double>(-1, -1));
+}
+
+void MscnProblem::set_check(double **tab, double wartosc, int pozX, int pozY, int maxX, int maxY) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
+        tab[pozX][pozY] = wartosc;
+    else
+        this->kodBledu = BLEDNY_ZAKRES
+}
+
+void MscnProblem::set_check(std::pair<double, double> **tab, std::pair<double, double>wartosc, int pozX, int pozY, int maxX, int maxY) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozX >= 0 && pozX < maxX && pozY >= 0 && pozY < maxY)
+        tab[pozX][pozY] = wartosc;
+    else
+        this->kodBledu = BLEDNY_ZAKRES
+}
+
+double MscnProblem::get_check(double *tab, int pozycja, int maxPozycja) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozycja >= 0 && pozycja < maxPozycja)
+        return tab[pozycja];
+
+    this->kodBledu = BLEDNY_ZAKRES
+    return -1;
+}
+
+void MscnProblem::set_check(double *tab, double wartosc, int pozycja, int maxPozycja) {
+    this->kodBledu = BRAK_BLEDU
+
+    if (pozycja >= 0 && pozycja < maxPozycja)
+        tab[pozycja] = wartosc;
+    else
+        this->kodBledu = BLEDNY_ZAKRES
+}

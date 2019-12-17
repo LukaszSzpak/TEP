@@ -101,8 +101,11 @@ private:
     void set_tab_jedno(double *(*tab), int roz);
 
     double get_check(double** tab, int pozX, int pozY, int maxX, int maxY);
+    double get_check(double* tab, int pozycja, int maxPozycja);
+    std::pair<double, double> get_check(std::pair<double, double> **tab, int pozX, int pozY, int maxX, int maxY);
     void set_check(double** tab, double wartosc, int pozX, int pozY, int maxX, int maxY);
     void set_check(double *tab, double wartosc, int pozycja, int maxPozycja);
+    void set_check(std::pair<double, double> **tab, std::pair<double, double>wartosc, int pozX, int pozY, int maxX, int maxY);
 
     bool sprawdzenieOgraniczen();
     bool czy_wszystko_istnieje();
