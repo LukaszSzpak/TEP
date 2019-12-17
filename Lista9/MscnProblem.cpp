@@ -397,7 +397,7 @@ void MscnProblem::set_tab_dwu(double **(*tab), int rozX, int rozY) {
 
 void MscnProblem::set_tab_jedno(double **tab, int roz) {
     if ((*tab) != nullptr)
-        delete(tab);
+        delete(*tab);
 
     (*tab) = new double[roz];
 }
@@ -522,8 +522,8 @@ bool MscnProblem::sprawdzenie_tabelki() {
     } //czy sklepu nie zamawiaja wiecej niz potrzebuja
 
     for (int i = 0; i < iloscFabryk; i++) {
-        double sumaWejsc = 0;
-        double sumaWyjsc = 0;
+        double sumaWejsc = 0.0;
+        double sumaWyjsc = 0.0;
 
         for (int j = 0; j < this->iloscDostawcow; j++)
             sumaWejsc += this->dostraczenie_dostawca_fabryka[j][i]; //suma wejsc towaru do danej fabryki
@@ -535,12 +535,12 @@ bool MscnProblem::sprawdzenie_tabelki() {
     }
 
     for (int i = 0; i < this->iloscDystrybucji; i++) {
-        double sumaWejsc = 0;
-        double sumaWyjsc = 0;
+        double sumaWejsc = 0.0;
+        double sumaWyjsc = 0.0;
 
         for (int j = 0; j < this->iloscFabryk; j++)
             sumaWejsc += this->dostarczenie_fabryka_magazyn[j][i]; //suma wejsc towarow do magazynu
-        for (int j = 0; i < this->iloscSklepow; j++)
+        for (int j = 0; j < this->iloscSklepow; j++)
             sumaWyjsc += this->dostarczenie_magazyn_sklep[i][j]; //syma wyjsc towarow z magazynu
 
         if (sumaWejsc < sumaWyjsc) //czy wychodzi wiecej niz wchodzi
@@ -550,22 +550,22 @@ bool MscnProblem::sprawdzenie_tabelki() {
     return true;
 }
 
-bool MscnProblem::bConstraintsSatisfied(double *pdSolution, int *kodBledu) {
-    *kodBledu = BRAK_BLEDU
+bool MscnProblem::bConstraintsSatisfied(double *pdSolution, int *kodBleduWartosc) {
+    *kodBleduWartosc = BRAK_BLEDU
     this->pdSolutionDoMacierzy(pdSolution);
 
     if (!this->czy_wszystko_istnieje()) {
-        *kodBledu = BRAK_TABLICY
+        *kodBleduWartosc = BRAK_TABLICY
         return 0;
     }
 
     if (!this->sprawdzenieOgraniczen()) {
-        *kodBledu = BLAD_MINMAX
+        *kodBleduWartosc = BLAD_MINMAX
         return false;
     }
 
     if (!this->sprawdzenie_tabelki()) {
-        *kodBledu = BLAD_ILOSC_TOWAROW
+        *kodBleduWartosc = BLAD_ILOSC_TOWAROW
         return false;
     }
 
