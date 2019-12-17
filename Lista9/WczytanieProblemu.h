@@ -21,6 +21,9 @@ private:
     std::basic_ifstream<char> plikProblemu;
     std::string nazwaPliku;
 
+    std::string getString();
+    double getDouble();
+    int getInt();
 };
 
 
