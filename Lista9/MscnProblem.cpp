@@ -129,7 +129,7 @@ void MscnProblem::set_zakres_dostawca_fabryka() {
         delete[](zakres_dostawca_fabryka);
 
     this->zakres_dostawca_fabryka = new std::pair<double, double>*[iloscDostawcow];
-    for (int j = 0; j < iloscFabryk; ++j) {
+    for (int j = 0; j < iloscDostawcow; ++j) {
         zakres_dostawca_fabryka[j] = new std::pair<double, double>[iloscFabryk];
     }
 }
@@ -479,25 +479,39 @@ double MscnProblem::policzKT() {
 
 double MscnProblem::policzKU() {
     double KU = 0;
+    bool czyDalej = true;
 
     for (int i = 0; i < this->iloscDostawcow; i++) {
-        for (int j = 0; j < this->iloscFabryk; j++) {
-            if (this->dostraczenie_dostawca_fabryka[i][j] > 0)
+        czyDalej = true;
+        for (int j = 0; j < this->iloscFabryk && czyDalej; j++) {
+            if (this->dostraczenie_dostawca_fabryka[i][j] > 0) {
                 KU += this->koszt_uslug_dostawcy[i];
+                czyDalej = false;
+            }
+
         }
     }
 
     for (int i = 0; i < this->iloscFabryk; i++) {
-        for (int j = 0; j < this->iloscDystrybucji; j++) {
-            if (this->dostarczenie_fabryka_magazyn[i][j] > 0)
+        czyDalej = true;
+        for (int j = 0; j < this->iloscDystrybucji && czyDalej; j++) {
+            if (this->dostarczenie_fabryka_magazyn[i][j] > 0) {
                 KU += this->koszt_korzystania_fabryki[i];
+                czyDalej = false;
+            }
+
+
         }
     }
 
     for (int i = 0; i < this->iloscDystrybucji; i++) {
-        for (int j = 0; j < this->iloscSklepow; j++) {
-            if (this->dostarczenie_magazyn_sklep[i][j] > 0)
+        czyDalej = true;
+        for (int j = 0; j < this->iloscSklepow && czyDalej; j++) {
+            if (this->dostarczenie_magazyn_sklep[i][j] > 0) {
                 KU += this->koszt_korzystania_centra[i];
+                czyDalej = false;
+            }
+
         }
     }
 
