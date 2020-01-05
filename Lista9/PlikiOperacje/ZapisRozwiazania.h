@@ -7,7 +7,7 @@
 
 
 #include <fstream>
-#include "MscnProblem.h"
+#include "../MscnProblem.h"
 
 class ZapisRozwiazania {
 public:

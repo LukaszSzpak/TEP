@@ -9,7 +9,7 @@
 #include <mbstring.h>
 #include <string>
 #include <fstream>
-#include "MscnProblem.h"
+#include "../MscnProblem.h"
 
 class WczytanieProblemu {
 public:
