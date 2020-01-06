@@ -7,6 +7,7 @@
 
 
 #include "../MscnProblem.h"
+#include "MyRandom.h"
 
 #define DEF_ILOSC_PROB 50;
 #define MIN 0;
@@ -24,6 +25,7 @@ private:
     int iloscProb;
     MscnProblem *pdSol;
     double *rozwiazanie;
+    MyRandom myRandom;
 
     void znajdzNajlepsze();
     void losujProblem();
