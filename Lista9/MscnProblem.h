@@ -66,6 +66,7 @@ public:
     double dGetQuality(double *pdSolution, int *kodBledu);
     bool bConstraintsSatisfied(double *pdSolution, int *kodBledu);
     void utworzTabliceIMacierze();
+    void pdSolutionDoMacierzy(double *pdSolution);
 
 private:
     int kodBledu;
@@ -120,7 +121,6 @@ private:
     double policzP();
 
     double policzZysk();
-    void pdSolutionDoMacierzy(double *pdSolution);
 };
 
 
