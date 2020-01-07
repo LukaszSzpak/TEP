@@ -11,7 +11,11 @@
 
 #define DEF_ILOSC_PROB 50;
 #define MIN 0;
-#define MAX 100;
+#define MAX 300;
+#define MAX_KOSZT 5;
+#define MAX_KOSZT_DOSTAWCA_FABRYKA 2;
+#define MAX_KOSZT_FABRYKA_MAGAZYN 2;
+#define MAX_KOSZT_MAGAZYN_SKLEP 2;
 
 class BestRandSol {
 public:
