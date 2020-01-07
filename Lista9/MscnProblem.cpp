@@ -2,6 +2,7 @@
 // Created by RC on 14.12.2019.
 //
 
+#include <sstream>
 #include "MscnProblem.h"
 
 int MscnProblem::getIloscDostawcow() const {
@@ -276,10 +277,12 @@ bool MscnProblem::czy_wszystko_istnieje() {
 
 bool MscnProblem::sprawdzenieOgraniczen() {
     for (int i = 0; i < this->iloscDostawcow; ++i)
-        for (int j = 0; j < this->iloscFabryk; ++j)
+        for (int j = 0; j < this->iloscFabryk; ++j) {
             if (this->zakres_dostawca_fabryka[i][j].first > this->dostraczenie_dostawca_fabryka[i][j] ||
-                    this->zakres_dostawca_fabryka[i][j].second < this->dostraczenie_dostawca_fabryka[i][j])
+                this->zakres_dostawca_fabryka[i][j].second < this->dostraczenie_dostawca_fabryka[i][j])
                 return false;
+        }
+
 
     for (int i = 0; i < this->iloscFabryk; i++)
         for (int j = 0; j < this->iloscDystrybucji; j++)
@@ -615,4 +618,47 @@ void MscnProblem::set_check(double *tab, double wartosc, int pozycja, int maxPoz
         tab[pozycja] = wartosc;
     else
         this->kodBledu = BLEDNY_ZAKRES
+}
+
+void MscnProblem::printParametryPomiaru() {
+
+    std::cout << "\nDOSTAWCA_FABRYKA\n";
+    for (int i = 0; i < this->iloscDostawcow; i++) {
+        for (int j = 0; j < this->iloscFabryk; j++) {
+            std::cout << "min: ";
+            std::cout << this->zakres_dostawca_fabryka[i][j].first;
+            std::cout << " max: ";
+            std::cout << this->zakres_dostawca_fabryka[i][j].second;
+            std::cout << " wartosc: ";
+            std::cout << this->dostraczenie_dostawca_fabryka[i][j];
+            std::cout << "\n";
+        }
+        std::cout << "\n";
+    }
+    std::cout << "\nFABRYKA_MAGAZYN\n";
+    for (int i = 0; i < this->iloscFabryk; i++) {
+        for (int j = 0; j < this->iloscDystrybucji; j++) {
+            std::cout << "min: ";
+            std::cout << this->zakres_fabryka_magazyn[i][j].first;
+            std::cout << " max: ";
+            std::cout << this->zakres_fabryka_magazyn[i][j].second;
+            std::cout << " wartosc: ";
+            std::cout << this->dostarczenie_fabryka_magazyn[i][j];
+            std::cout << "\n";
+        }
+        std::cout << "\n";
+    }
+    std::cout << "\nMAGAZYN_SKLEP\n";
+    for (int i = 0; i < this->iloscDystrybucji; i++) {
+        for (int j = 0; j < this->iloscSklepow; j++) {
+            std::cout << "min: ";
+            std::cout << this->zakres_magazyn_sklep[i][j].first;
+            std::cout << " max: ";
+            std::cout << this->zakres_magazyn_sklep[i][j].second;
+            std::cout << " wartosc: ";
+            std::cout << this->dostarczenie_magazyn_sklep[i][j];
+            std::cout << "\n";
+        }
+        std::cout << "\n";
+    }
 }

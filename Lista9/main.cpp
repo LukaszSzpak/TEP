@@ -3,7 +3,6 @@
 #include "PlikiOperacje/WczytanieProblemu.h"
 #include "PlikiOperacje/WczytanieRozwiazania.h"
 #include "PlikiOperacje/ZapisRozwiazania.h"
-#include "Losowe/MyRandom.h"
 #include "Losowe/BestRandSol.h"
 
 int main() {
@@ -35,8 +34,8 @@ int main() {
         std::cout << "\nLosowy double z przedzialu <-100, 100>: "<<myRand.getDouble(-100.00, 100.00);
     }
 */
-    double zyski[] = {5.2, 5.6, 1.8, 20.9};
-    BestRandSol *bestRand = new BestRandSol(1000, pdSolution);
+    double zyski[] = {50.2, 15.6, 90.8, 20.9};
+    BestRandSol *bestRand = new BestRandSol(10000, pdSolution);
     bestRand->ustawInstancje(1, 2, 1, 4, zyski);
     auto *najlepszeRoz = bestRand->getBestSolution();
 
@@ -44,6 +43,7 @@ int main() {
         std::cout << "\nBRAK ROZWIAZANIA !";
     } else {
         std::cout << "\nWynik najlepszego rozwiazania: " << najlepszeRoz->dGetQuality(pdSolution, kodBledu);
+        najlepszeRoz->printParametryPomiaru();
     }
 
 }

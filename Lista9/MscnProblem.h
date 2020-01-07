@@ -67,6 +67,7 @@ public:
     bool bConstraintsSatisfied(double *pdSolution, int *kodBledu);
     void utworzTabliceIMacierze();
     void pdSolutionDoMacierzy(double *pdSolution);
+    void printParametryPomiaru();
 
 private:
     int kodBledu;
