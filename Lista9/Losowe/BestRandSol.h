@@ -11,7 +11,7 @@
 
 #define DEF_ILOSC_PROB 50;
 #define MIN 0;
-#define MAX 300;
+#define MAX 200;
 #define MAX_KOSZT 5;
 #define MAX_KOSZT_DOSTAWCA_FABRYKA 2;
 #define MAX_KOSZT_FABRYKA_MAGAZYN 2;
@@ -24,6 +24,7 @@ public:
 
     MscnProblem *getBestSolution();
     void ustawInstancje(int iloscDostawcow, int iloscFabryk, int iloscDystrybucji, int iloscSklepow, double *zyskProduktow);
+    void losujProblem();
 
 private:
     int iloscProb;
@@ -32,7 +33,7 @@ private:
     MyRandom myRandom;
 
     void znajdzNajlepsze();
-    void losujProblem();
+
 
 };
 
