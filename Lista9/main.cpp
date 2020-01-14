@@ -4,6 +4,7 @@
 #include "PlikiOperacje/WczytanieRozwiazania.h"
 #include "PlikiOperacje/ZapisRozwiazania.h"
 #include "Losowe/BestRandSol.h"
+#include "Losowe/DE.h"
 
 int main() {
 
@@ -35,15 +36,22 @@ int main() {
     }
 */
     double zyski[] = {50.2, 15.6, 90.8, 20.9};
+    /*
     BestRandSol *bestRand = new BestRandSol(10000, pdSolution);
     bestRand->ustawInstancje(1, 2, 1, 4, zyski);
     auto *najlepszeRoz = bestRand->getBestSolution();
+    */
+
+    auto *DEBest = new DE();
+    DEBest->ustawInstancje(1, 2, 1, 4, zyski, pdSolution);
+    DEBest->znajdzNajlepszeRozwiazanie();
+    auto najlepszeRoz = DEBest->getNajlepszyProblem();
 
     if (najlepszeRoz == nullptr) {
         std::cout << "\nBRAK ROZWIAZANIA !";
     } else {
         std::cout << "\nWynik najlepszego rozwiazania: " << najlepszeRoz->dGetQuality(pdSolution, kodBledu);
-        najlepszeRoz->printParametryPomiaru();
+        //najlepszeRoz->printParametryPomiaru();
     }
 
 }
