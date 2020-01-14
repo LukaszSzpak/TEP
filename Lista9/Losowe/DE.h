@@ -16,6 +16,7 @@ public:
     MscnProblem* getNajlepszyProblem();
     void ustawInstancje(int iloscDostawcow, int iloscFabryk, int iloscDystrybucji, int iloscSklepow, double *zyskProduktow, double* pdSol);
     void znajdzNajlepszeRozwiazanie();
+    void najlepszeRozwiazanieSrednia(int wielkoscPopulacji, int iloscWybierana);
 
 private:
     double najlepszyWynik;

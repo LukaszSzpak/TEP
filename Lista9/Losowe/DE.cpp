@@ -166,3 +166,29 @@ bool DE::czyZmieniamy() {
     return (this->mojeLosowanie.getDouble(0, 1) < progZamiany);
 }
 
+void DE::najlepszeRozwiazanieSrednia(int wielkoscPopulacji, int iloscWybierana) {
+    int* kodBledy = new int;
+
+    MscnProblem **tabProblemow = new MscnProblem*[wielkoscPopulacji];
+    for (int i = 0; i < wielkoscPopulacji; i++) {
+        losowanieProblemu->losujProblem();
+        tabProblemow[i] = this->losowanieProblemu->getBestSolution();
+    }
+
+    int *tabRoz = new int[iloscWybierana];
+    for (int i = 0; i < iloscWybierana; i++) {
+        tabRoz[i] = this->mojeLosowanie.getInt(0, wielkoscPopulacji-1);
+    }
+
+    for (int i = 0; i < iloscWybierana; i++) {
+        for (int j = i; j < iloscWybierana - 1; j++) {
+            if (tabProblemow[tabRoz[i]]->dGetQuality(this->pdSol, kodBledy) > tabProblemow[tabRoz[j]]->dGetQuality(this->pdSol, kodBledy)) {
+                int temp = tabRoz[i];
+                tabRoz[i] = tabRoz[j];
+                tabRoz[j] = temp;
+            }
+        }
+    }
+    this->wybierzNajlepsze(tabProblemow[tabRoz[0]], tabProblemow[tabRoz[1]], tabProblemow[tabRoz[2]]);
+}
+

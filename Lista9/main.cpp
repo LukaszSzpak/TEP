@@ -44,7 +44,8 @@ int main() {
 
     auto *DEBest = new DE();
     DEBest->ustawInstancje(1, 2, 1, 4, zyski, pdSolution);
-    DEBest->znajdzNajlepszeRozwiazanie();
+    //DEBest->znajdzNajlepszeRozwiazanie();
+    DEBest->najlepszeRozwiazanieSrednia(100, 5);
     auto najlepszeRoz = DEBest->getNajlepszyProblem();
 
     if (najlepszeRoz == nullptr) {
